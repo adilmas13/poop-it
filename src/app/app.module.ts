@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuModule } from './menu/menu.module';
 import { ComposerModule } from './composer/composer.module';
+import { NotesListModule } from './notes-list/notes-list.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ComposerModule } from './composer/composer.module';
     BrowserModule,
     AppRoutingModule,
     MenuModule,
-    ComposerModule
+    ComposerModule,
+    NotesListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

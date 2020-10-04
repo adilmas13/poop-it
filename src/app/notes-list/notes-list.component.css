@@ -1,0 +1,9 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+  width: 350px;
+  padding: 20px; }
+
+/*# sourceMappingURL=notes-list.component.css.map */
