@@ -6,14 +6,10 @@
 
 input {
   outline: none;
-  height: 40px;
-  border-radius: $border-radius;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 14px;
   box-sizing: border-box;
   border: 1px solid var(--border-color);
   width: 100%;
+  color: var(--default-color);
 
   &:focus {
     border: 1px solid var(--primary-color);
@@ -29,18 +25,12 @@ textarea {
   outline: none;
   height: 100px;
   border-radius: $border-radius;
-  padding-left: 10px;
-  padding-right: 10px;
   font-size: 14px;
   box-sizing: border-box;
   border: 1px solid var(--border-color);
   width: 100%;
   resize: none;
-  padding-top: 10px;
-
-  &:focus {
-    border: 1px solid var(--primary-color);
-  }
+  color: var(--default-color);
 
   &.disable {
     border: 1px solid var(--border-color);

@@ -1,5 +1,5 @@
 @import "colours";
-
+@import "fonts";
 :host {
   flex: 1;
   box-sizing: border-box;
@@ -10,12 +10,13 @@
   background: var(--background-color);
   border-top-left-radius: 5px;
   box-shadow: 0 1px 6px 0 var(--shadow-color);
-  
+
   .heading {
     width: 100%;
-    font-size: 50px;
+    font-size: 40px;
     outline: none;
     border: none;
+    @include font-semi-bold;
   }
 
   .body {
@@ -24,8 +25,8 @@
     height: calc(100vh - 100px);
     resize: none;
     border: none;
-    font-size: 30px;
-    padding-top: 10px;
+    font-size: 24px;
+    padding: 20px 0 0 5px;
   }
 }
 

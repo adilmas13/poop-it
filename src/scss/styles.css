@@ -6,7 +6,7 @@
   --error-color: #ff9494; }
 
 .theme-light {
-  --default-color: #000000;
+  --default-color: #474848;
   --background-color: #ffffff;
   --secondary-background-color: #F6F7Fb;
   --shadow-color: #e2e2e2;
@@ -25,14 +25,10 @@
 
 input {
   outline: none;
-  height: 40px;
-  border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 14px;
   box-sizing: border-box;
   border: 1px solid var(--border-color);
-  width: 100%; }
+  width: 100%;
+  color: var(--default-color); }
   input:focus {
     border: 1px solid var(--primary-color); }
   input.disable {
@@ -43,16 +39,12 @@ textarea {
   outline: none;
   height: 100px;
   border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
   font-size: 14px;
   box-sizing: border-box;
   border: 1px solid var(--border-color);
   width: 100%;
   resize: none;
-  padding-top: 10px; }
-  textarea:focus {
-    border: 1px solid var(--primary-color); }
+  color: var(--default-color); }
   textarea.disable {
     border: 1px solid var(--border-color);
     background: var(--disable-bg-color); }
