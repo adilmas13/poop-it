@@ -1,0 +1,8 @@
+@import "colours";
+
+.menu-parent{
+  height: 100%;
+  width: 80px;
+  box-shadow: 10px 0 10px -5px var(--shadow-color);
+  background: var(--background-color);
+}

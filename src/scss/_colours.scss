@@ -1,0 +1,34 @@
+// LIGHT COLORS
+$background-color: #ffffff;
+$secondary-background-color: #F6F7Fb;
+$default-color: #000000;
+$shadow-color: #e2e2e2;
+$border-color: #e8e8e8;
+$disable-bg-color: #fafafa;
+$icon-color: #000000;
+
+// DARK COLORS
+$background-color-dark: #192A3D;
+$secondary-background-color-dark: #233449;
+$default-color-dark: #FFFFFF;
+$shadow-color-dark: #0f1318;
+$border-color-dark: #253c56;
+$disable-bg-color-dark: #12202f;
+$icon-color-dark: #ffffff;
+
+:root {
+  --primary-color: #69BDCF;
+  --primary-color-dark: #4AAFCF;
+  --success-color: #4bb543;
+  --error-color: #ff9494;
+}
+
+$colors: (
+  --default-color : ($default-color, $default-color-dark),
+  --background-color : ($background-color, $background-color-dark),
+  --secondary-background-color : ($secondary-background-color, $secondary-background-color-dark),
+  --shadow-color : ($shadow-color, $shadow-color-dark),
+  --border-color : ($border-color, $border-color-dark),
+  --disable-bg-color : ($disable-bg-color, $disable-bg-color-dark),
+  --icon-color : ($icon-color, $icon-color-dark)
+);

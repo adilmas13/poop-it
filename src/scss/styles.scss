@@ -1,0 +1,81 @@
+@import 'variables';
+@import 'fonts';
+@import "colours";
+@import "themes";
+
+
+input {
+  outline: none;
+  height: 40px;
+  border-radius: $border-radius;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+  width: 100%;
+
+  &:focus {
+    border: 1px solid var(--primary-color);
+  }
+
+  &.disable {
+    border: 1px solid var(--border-color);
+    background: var(--disable-bg-color);
+  }
+}
+
+textarea {
+  outline: none;
+  height: 100px;
+  border-radius: $border-radius;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  resize: none;
+  padding-top: 10px;
+
+  &:focus {
+    border: 1px solid var(--primary-color);
+  }
+
+  &.disable {
+    border: 1px solid var(--border-color);
+    background: var(--disable-bg-color);
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Raleway", serif;
+  font-weight: $font-regular;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--default-color);
+  background: var(--secondary-background-color);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", serif;
+  background: transparent;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

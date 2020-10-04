@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+:root {
+  --primary-color: #69BDCF;
+  --primary-color-dark: #4AAFCF;
+  --success-color: #4bb543;
+  --error-color: #ff9494; }
+
+.theme-light {
+  --default-color: #000000;
+  --background-color: #ffffff;
+  --secondary-background-color: #F6F7Fb;
+  --shadow-color: #e2e2e2;
+  --border-color: #e8e8e8;
+  --disable-bg-color: #fafafa;
+  --icon-color: #000000; }
+
+.theme-dark {
+  --default-color: #FFFFFF;
+  --background-color: #192A3D;
+  --secondary-background-color: #233449;
+  --shadow-color: #0f1318;
+  --border-color: #253c56;
+  --disable-bg-color: #12202f;
+  --icon-color: #ffffff; }
+
+input {
+  outline: none;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+  width: 100%; }
+  input:focus {
+    border: 1px solid var(--primary-color); }
+  input.disable {
+    border: 1px solid var(--border-color);
+    background: var(--disable-bg-color); }
+
+textarea {
+  outline: none;
+  height: 100px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  resize: none;
+  padding-top: 10px; }
+  textarea:focus {
+    border: 1px solid var(--primary-color); }
+  textarea.disable {
+    border: 1px solid var(--border-color);
+    background: var(--disable-bg-color); }
+
+html, body {
+  height: 100%; }
+
+body {
+  font-family: "Raleway", serif;
+  font-weight: 400;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--default-color);
+  background: var(--secondary-background-color); }
+
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", serif;
+  background: transparent; }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,26 @@
+:host {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+
+  .heading {
+    width: 100%;
+    font-size: 50px;
+    outline: none;
+    border: none;
+  }
+
+  .body {
+    width: 100%;
+    outline: none;
+    height: calc(100vh - 100px);
+    resize: none;
+    border: none;
+    font-size: 30px;
+    padding-top: 10px;
+  }
+}
+
+

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+$font-regular: 400;
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+
+@mixin font-regular() {
+  font-weight: $font-regular;
+}
+
+@mixin font-medium() {
+  font-weight: $font-medium;
+}
+
+@mixin font-semi-bold() {
+  font-weight: $font-semi-bold;
+}
+
+@mixin font-bold() {
+  font-weight: $font-bold;
+}
+
