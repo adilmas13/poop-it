@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 :root {
   --primary-color: #69BDCF;
   --primary-color-dark: #4AAFCF;
@@ -53,7 +55,6 @@ html, body {
   height: 100%; }
 
 body {
-  font-family: "Raleway", serif;
   font-weight: 400;
   margin: 0;
   font-size: 14px;
@@ -62,8 +63,8 @@ body {
   background: var(--secondary-background-color); }
 
 * {
+  font-family: 'Special Elite', cursive;
   box-sizing: border-box;
-  font-family: "Raleway", serif;
   background: transparent; }
 
 /* Chrome, Safari, Edge, Opera */

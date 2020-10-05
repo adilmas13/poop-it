@@ -4,10 +4,10 @@ Error: File to import not found or unreadable: colours.
 
 1: @import "colours";
 2: @import "fonts";
-3: :host {
-4:   flex: 1;
-5:   box-sizing: border-box;
-6:   padding: 25px;
+3: 
+4: :host {
+5:   flex: 1;
+6:   box-sizing: border-box;
 
 Backtrace:
 composer.component.scss:1
@@ -48,4 +48,4 @@ composer.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of composer.component.scss\A \A 1: @import \"colours\";\A 2: @import \"fonts\";\A 3: :host {\A 4:   flex: 1;\A 5:   box-sizing: border-box;\A 6:   padding: 25px;"; }
+  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of composer.component.scss\A \A 1: @import \"colours\";\A 2: @import \"fonts\";\A 3: \A 4: :host {\A 5:   flex: 1;\A 6:   box-sizing: border-box;"; }

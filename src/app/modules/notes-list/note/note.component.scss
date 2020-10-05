@@ -5,7 +5,16 @@
   width: 100%;
   height: 120px;
   border-radius: 5px;
-  box-shadow: 0 1px 6px 0 var(--shadow-color);
+  //box-shadow: 0 1px 6px 0 var(--shadow-color);
   background: var(--background-color);
   margin-bottom: 20px;
+  border: 1px solid var(--shadow-color);
+  cursor: pointer;
+  transition: 0.2s ease-out all;
+
+  &:hover {
+    box-shadow: 0 1px 6px 0 var(--shadow-color);
+    transform: scale(1.01);
+  }
+
 }

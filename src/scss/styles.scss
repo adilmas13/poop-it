@@ -43,7 +43,6 @@ html, body {
 }
 
 body {
-  font-family: "Raleway", serif;
   font-weight: $font-regular;
   margin: 0;
   font-size: 14px;
@@ -53,8 +52,9 @@ body {
 }
 
 * {
+  //font-family: "Architects Daughter", cursive,serif;
+  font-family: 'Special Elite', cursive;
   box-sizing: border-box;
-  font-family: "Raleway", serif;
   background: transparent;
 }
 
