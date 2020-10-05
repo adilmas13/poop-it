@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuModule } from './menu/menu.module';
-import { ComposerModule } from './composer/composer.module';
-import { NotesListModule } from './notes-list/notes-list.module';
+import { MenuModule } from './modules/menu/menu.module';
+import { ComposerModule } from './modules/composer/composer.module';
+import { NotesListModule } from './modules/notes-list/notes-list.module';
 
 @NgModule({
   declarations: [

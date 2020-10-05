@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesRepositoryService } from './repository/notes-repository.service';
-import { NotesWrapper } from './models/Note';
+import { NotesWrapper } from './models/note';
 
 @Component({
   selector: 'app-root',

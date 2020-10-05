@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { makeDefault, NotesWrapper } from '../models/Note';
+import { makeDefault, NotesWrapper } from '../models/note';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
