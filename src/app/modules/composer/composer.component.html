@@ -1,9 +1,9 @@
 <div class="parent">
 
 <label>
-  <input placeholder="Heading comes here" class="heading"/>
+  <input placeholder="Heading comes here" class="heading" [(ngModel)]="note.title" (ngModelChange)="onTextChange($event)"/>
 </label>
   <label>
-    <textarea class="body" placeholder="Write something awesome"></textarea>
+    <textarea class="body" placeholder="Write something awesome" [(ngModel)]="note.body" (ngModelChange)="onTextChange($event)"></textarea>
   </label>
 </div>

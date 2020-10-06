@@ -1,7 +1,7 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
     <app-menu></app-menu>
-    <app-notes-list [notes]="state.notes"></app-notes-list>
-    <app-composer></app-composer>
+    <app-notes-list [notes]="state.notes" [selectedNote]="state.selectedNote"></app-notes-list>
+    <app-composer [note]="state.notes[0]" (save)="store.save()"></app-composer>
   </div>
 </ng-container>

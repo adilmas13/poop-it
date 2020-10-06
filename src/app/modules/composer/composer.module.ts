@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComposerComponent } from './composer.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,8 +10,9 @@ import { ComposerComponent } from './composer.component';
     exports: [
         ComposerComponent
     ],
-    imports: [
-        CommonModule
-    ]
+  imports: [
+    CommonModule,
+    FormsModule
+  ]
 })
 export class ComposerModule { }
