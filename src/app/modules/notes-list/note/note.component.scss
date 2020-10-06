@@ -13,7 +13,7 @@
   margin-bottom: 20px;
   border: 1px solid var(--shadow-color);
   cursor: pointer;
-  transition: 0.2s ease-out all;
+  transition: 0.1s ease-out all;
   padding: 10px 20px;
 
   &:hover {
@@ -23,6 +23,7 @@
 
   &.selected{
     border: 1px solid var(--primary-color);
+    transform: scale(0.98);
   }
 
   .title-and-time-wrapper {
