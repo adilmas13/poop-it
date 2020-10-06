@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { Note } from '../../models/note'
 
 @Component({
@@ -10,6 +10,7 @@ export class NotesListComponent implements OnInit {
 
   @Input() notes: Note[]
   @Input() selectedNote: string
+  @Output() noteSelected = new EventEmitter<number>()
 
   constructor() {
   }

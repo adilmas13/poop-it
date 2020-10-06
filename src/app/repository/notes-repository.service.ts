@@ -38,4 +38,6 @@ export class NotesRepositoryService {
     wrapper.notes = notes
     localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
   }
+
+  setSelectedNote = (id: string) => localStorage.setItem(this.KEY_NOTE_SELECTED, id)
 }

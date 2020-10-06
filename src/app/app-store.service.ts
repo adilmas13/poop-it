@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core'
-import { Note } from './models/note'
+import { makeDefault, Note } from './models/note'
 import { BaseStore } from './store/base-store'
 import { NotesRepositoryService } from './repository/notes-repository.service'
 import { zip } from 'rxjs'
 
 class AppState {
   notes: Note[]
-  selectedNote: string
+  selectedNote: Note
 }
 
 @Injectable()
@@ -22,11 +22,27 @@ export class AppStore extends BaseStore<AppState> {
 
   private onNotesSuccess = (result: any[]) => this.setState({
     notes: result[0].notes,
-    selectedNote: result[1]
+    selectedNote: result[0].notes.find(it => it.id === result[1])
   })
 
-  save() {
-    console.log(this.state.notes)
+  save = () => {
     this.repository.saveToStorage(this.state.notes)
+  }
+
+  onAddNote = () => {
+    const newNote = makeDefault()
+    this.state.notes.unshift(newNote)
+    this.setState({
+      notes: this.state.notes,
+      selectedNote: newNote
+    })
+    this.repository.saveToStorage(this.state.notes)
+    this.repository.setSelectedNote(this.state.selectedNote.id)
+  }
+
+  onNoteSelected = (index: number) => {
+    const temp = this.state.notes[index]
+    this.setState({selectedNote: temp})
+    this.repository.setSelectedNote(temp.id)
   }
 }

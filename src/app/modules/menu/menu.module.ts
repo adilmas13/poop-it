@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
+import { AddButtonComponent } from './add-button/add-button.component';
 
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, AddButtonComponent],
   imports: [
     CommonModule
   ],

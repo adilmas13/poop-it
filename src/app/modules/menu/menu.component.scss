@@ -8,4 +8,8 @@
   background: var(--background-color);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

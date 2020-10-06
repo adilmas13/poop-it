@@ -1,3 +1,7 @@
 <div class="parent">
-  <app-note *ngFor="let note of notes; trackBy: trackByFn" [note]="note" [isSelected]="note.id === selectedNote"></app-note>
+  <app-note *ngFor="let note of notes; index as i; trackBy: trackByFn"
+            [note]="note"
+            [isSelected]="note.id === selectedNote"
+            (click)="noteSelected.emit(i)"
+  ></app-note>
 </div>
