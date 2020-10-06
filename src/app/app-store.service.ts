@@ -25,9 +25,7 @@ export class AppStore extends BaseStore<AppState> {
     selectedNote: result[0].notes.find(it => it.id === result[1])
   })
 
-  save = () => {
-    this.repository.saveToStorage(this.state.notes)
-  }
+  save = () => this.saveToStorage()
 
   onAddNote = () => {
     const newNote = makeDefault()
@@ -36,13 +34,17 @@ export class AppStore extends BaseStore<AppState> {
       notes: this.state.notes,
       selectedNote: newNote
     })
-    this.repository.saveToStorage(this.state.notes)
-    this.repository.setSelectedNote(this.state.selectedNote.id)
+    this.saveToStorage()
+    this.saveSelectedNoteToStorage(this.state.selectedNote.id)
   }
 
   onNoteSelected = (index: number) => {
     const temp = this.state.notes[index]
     this.setState({selectedNote: temp})
-    this.repository.setSelectedNote(temp.id)
+    this.saveSelectedNoteToStorage(temp.id)
   }
+
+  private saveToStorage = () => this.repository.saveToStorage(this.state.notes)
+
+  private saveSelectedNoteToStorage = (id: string) => this.repository.setSelectedNote(id)
 }
