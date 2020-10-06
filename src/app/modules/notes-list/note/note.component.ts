@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
+import { Note } from '../../../models/note'
 
 @Component({
   selector: 'app-note',
@@ -8,7 +9,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
 
-  constructor() { }
+  @Input() note: Note
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

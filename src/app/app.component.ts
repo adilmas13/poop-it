@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { NotesRepositoryService } from './repository/notes-repository.service';
-import { NotesWrapper } from './models/note';
+import { AppStore } from './app-store.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [AppStore]
 })
 export class AppComponent implements OnInit {
 
-  constructor(private service: NotesRepositoryService) {
+  constructor(public store: AppStore) {
   }
 
   ngOnInit(): void {
-    this.service.getNotes().subscribe(
-      (value: NotesWrapper) => console.log(value.notes),
-      err => console.log(err)
-    );
+    this.store.getNotes()
   }
 }

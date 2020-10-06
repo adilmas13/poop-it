@@ -1,5 +1,7 @@
-<div class="parent">
-  <app-menu></app-menu>
-  <app-notes-list></app-notes-list>
-  <app-composer></app-composer>
-</div>
+<ng-container *ngIf="store.state$ | async as state">
+  <div class="parent">
+    <app-menu></app-menu>
+    <app-notes-list [notes]="state.notes"></app-notes-list>
+    <app-composer></app-composer>
+  </div>
+</ng-container>
