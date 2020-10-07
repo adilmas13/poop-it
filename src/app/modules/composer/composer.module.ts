@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComposerComponent } from './composer.component';
 import { FormsModule } from '@angular/forms';
+import { IconModule } from '../common/icon/icon.module'
 
 
 
@@ -10,9 +11,10 @@ import { FormsModule } from '@angular/forms';
     exports: [
         ComposerComponent
     ],
-  imports: [
-    CommonModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IconModule
+    ]
 })
 export class ComposerModule { }

@@ -1,0 +1,26 @@
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  &.isSelected {
+    svg {
+      fill: var(--primary-color);
+    }
+  }
+}
+
+svg {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  fill: var(--icon-color);
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}

@@ -1,5 +1,4 @@
-<div class="parent">
-
+<div class="parent" [class.locked]="note.locked">
 <label>
   <input placeholder="Heading comes here" class="heading" [(ngModel)]="note.title" (ngModelChange)="onTextChange($event)"/>
 </label>
@@ -7,3 +6,6 @@
     <textarea class="body" placeholder="Write something awesome" [(ngModel)]="note.body" (ngModelChange)="onTextChange($event)"></textarea>
   </label>
 </div>
+
+<div class="lock-message" [class.visible]="note.locked">Note is locked from editing</div>
+<app-icon [icon]="note.locked ?'block': 'unblock'" class="lock" (click)="note.locked = !note.locked"></app-icon>

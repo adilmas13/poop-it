@@ -1,0 +1,16 @@
+<div class="icon-wrapper" [class.isSelected]="isSelected">
+  <ng-container [ngSwitch]="icon">
+    <app-icon-delete *ngSwitchCase="'delete'"></app-icon-delete>
+    <app-icon-block *ngSwitchCase="'block'"></app-icon-block>
+    <app-icon-unblock *ngSwitchCase="'unblock'"></app-icon-unblock>
+    <app-icon-left-arrow *ngSwitchCase="'left-arrow'"></app-icon-left-arrow>
+    <app-icon-question *ngSwitchCase="'question'"></app-icon-question>
+    <app-icon-category *ngSwitchCase="'category'"></app-icon-category>
+    <app-icon-question-assets *ngSwitchCase="'question-assets'"></app-icon-question-assets>
+    <app-icon-avatar *ngSwitchCase="'avatar-assets'"></app-icon-avatar>
+    <app-icon-faq *ngSwitchCase="'faq'"></app-icon-faq>
+    <app-icon-request *ngSwitchCase="'request'"></app-icon-request>
+    <app-icon-write-to-us *ngSwitchCase="'write-to-us'"></app-icon-write-to-us>
+    <app-icon-notification *ngSwitchCase="'notification'"></app-icon-notification>
+  </ng-container>
+</div>
