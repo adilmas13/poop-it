@@ -13,6 +13,7 @@
   background: var(--background-color);
   //box-shadow: 0 1px 6px 0 var(--shadow-color);
   border: 1px solid var(--shadow-color);
+  position: relative;
 
   .parent {
     &.locked {
@@ -27,6 +28,7 @@
     outline: none;
     border: none;
     @include font-semi-bold;
+    padding-left: 10px;
   }
 
   .body {
@@ -74,8 +76,31 @@
   align-items: center;
   justify-content: center;
 
-  &.visible{
+  &.visible {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+.headline {
+  @include font-bold();
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 50px;
+  left: -18px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+  background: var(--background-color);
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease-out all;
+  user-select: none;
+
+  &:hover {
+    transform: scale(1.05);
   }
 }

@@ -16,8 +16,8 @@ export const makeDefault = (): Note => {
   const time = Date.now()
   return {
     id: time.toString(),
-    title: 'New Note',
-    body: 'No additional text',
+    title: '',
+    body: '',
     locked: false,
     createdOn: time,
     isTitleVisible: false,
