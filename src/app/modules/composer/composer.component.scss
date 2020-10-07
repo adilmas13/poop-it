@@ -82,7 +82,7 @@
   }
 }
 
-.headline {
+.h-btn {
   @include font-bold();
   position: absolute;
   height: 40px;
@@ -102,5 +102,31 @@
 
   &:hover {
     transform: scale(1.05);
+  }
+}
+
+.h-btn-msg {
+  position: absolute;
+  top: 55px;
+  left: 30px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+  padding: 0 10px;
+  color: var(--default-color);
+  border-radius: 50px 20px 20px 50px;
+  letter-spacing: 0.5px;
+  @include font-semi-bold;
+  transition: 0.3s ease-out all;
+  transform-origin: right center;
+  background: var(--background-color);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-20px);
+
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

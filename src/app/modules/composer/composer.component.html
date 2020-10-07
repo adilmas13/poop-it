@@ -1,15 +1,19 @@
 <div class="parent" [class.locked]="note.locked">
   <label>
-    <input placeholder="Heading comes here" class="heading"
+    <input placeholder="heading comes here" class="heading"
            *ngIf="note.isTitleVisible"
            [(ngModel)]="note.title" (ngModelChange)="onTextChange($event)"/>
   </label>
   <label>
-    <textarea class="body" placeholder="Write something awesome" [(ngModel)]="note.body"
+    <textarea class="body" placeholder="write something awesome" [(ngModel)]="note.body"
               (ngModelChange)="onTextChange($event)"></textarea>
   </label>
 </div>
 
-<div class="lock-message" [class.visible]="note.locked">Note is locked from editing</div>
+<div class="lock-message" [class.visible]="note.locked">note is locked from editing</div>
 <app-icon [icon]="note.locked ?'block': 'unblock'" class="lock" (click)="note.locked = !note.locked"></app-icon>
-<div class="headline" (click)="note.isTitleVisible = !note.isTitleVisible">{{note.isTitleVisible ? "H-" : "H+"}}</div>
+<div class="h-btn"
+     (mouseenter)="isHeadlineButtonVisible = true"
+     (mouseout)="isHeadlineButtonVisible = false"
+     (click)="note.isTitleVisible = !note.isTitleVisible">{{note.isTitleVisible ? "h-" : "h+"}}</div>
+<div class="h-btn-msg" [class.visible]="isHeadlineButtonVisible">{{note.isTitleVisible ? "hide title" : "show title"}}</div>

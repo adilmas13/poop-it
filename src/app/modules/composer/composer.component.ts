@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core'
 import { Note } from '../../models/note'
 import { Subject } from 'rxjs'
-import { debounce, debounceTime, distinctUntilChanged } from 'rxjs/operators'
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 
 @Component({
   selector: 'app-composer',
@@ -12,7 +12,8 @@ export class ComposerComponent implements OnInit, OnDestroy {
 
   @Input() note: Note
   @Output() save = new EventEmitter()
-  textChanged: Subject<string> = new Subject<string>();
+  isHeadlineButtonVisible = false
+  textChanged: Subject<string> = new Subject<string>()
 
   constructor() {
     this.textChanged.pipe(
