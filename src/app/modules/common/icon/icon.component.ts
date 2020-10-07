@@ -13,6 +13,8 @@ export type icons =
   | 'request'
   | 'write-to-us'
   | 'notification'
+  | 'maximize'
+  | 'minimize'
 
 @Component({
   selector: 'app-icon',

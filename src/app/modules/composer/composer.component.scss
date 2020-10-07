@@ -15,6 +15,15 @@
   border: 1px solid var(--shadow-color);
   position: relative;
 
+  &.isFullScreen {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    .h-btn {
+      transform: scale(0);
+    }
+  }
+
   .parent {
     &.locked {
       pointer-events: none;
@@ -40,93 +49,93 @@
     font-size: 24px;
     padding: 20px 0 0 5px;
   }
-}
 
+  .lock {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding-top: 5px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.lock {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  padding-top: 5px;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .lock-message {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    padding: 0 10px;
+    color: var(--default-color);
+    border-radius: 20px 50px 50px 20px;
+    letter-spacing: 0.5px;
+    @include font-semi-bold;
+    transition: 0.3s ease-out all;
+    transform-origin: right center;
+    opacity: 0;
+    transform: translateX(20px);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.lock-message {
-  position: absolute;
-  top: 20px;
-  right: 70px;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
-  padding: 0 10px;
-  color: var(--default-color);
-  border-radius: 20px 50px 50px 20px;
-  letter-spacing: 0.5px;
-  @include font-semi-bold;
-  transition: 0.3s ease-out all;
-  transform-origin: right center;
-  opacity: 0;
-  transform: translateX(20px);
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    &.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
-  &.visible {
-    opacity: 1;
-    transform: translateX(0);
+  .h-btn {
+    @include font-bold();
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 50px;
+    left: -18px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    background: var(--background-color);
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease-out all;
+    user-select: none;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .h-btn-msg {
+    position: absolute;
+    top: 55px;
+    left: 30px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    padding: 0 10px;
+    color: var(--default-color);
+    border-radius: 50px 20px 20px 50px;
+    letter-spacing: 0.5px;
+    @include font-semi-bold;
+    transition: 0.3s ease-out all;
+    transform-origin: right center;
+    background: var(--background-color);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-20px);
+
+    &.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
-.h-btn {
-  @include font-bold();
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 50px;
-  left: -18px;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
-  background: var(--background-color);
-  display: flex;
-  font-size: 20px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s ease-out all;
-  user-select: none;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-
-.h-btn-msg {
-  position: absolute;
-  top: 55px;
-  left: 30px;
-  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
-  padding: 0 10px;
-  color: var(--default-color);
-  border-radius: 50px 20px 20px 50px;
-  letter-spacing: 0.5px;
-  @include font-semi-bold;
-  transition: 0.3s ease-out all;
-  transform-origin: right center;
-  background: var(--background-color);
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateX(-20px);
-
-  &.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}

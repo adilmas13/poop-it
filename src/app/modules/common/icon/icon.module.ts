@@ -13,10 +13,12 @@ import { IconWriteToUsComponent } from './icon-write-to-us/icon-write-to-us.comp
 import { IconRequestComponent } from './icon-request/icon-request.component'
 import { IconAvatarComponent } from './icon-avatar/icon-avatar.component'
 import { IconQuestionAssetsComponent } from './icon-question-assets/icon-question-assets.component'
+import { IconMaximizeComponent } from './icon-maximize/icon-maximize.component'
+import { IconMinimizeComponent } from './icon-minimize/icon-minimize.component'
 
 
 @NgModule({
-  declarations: [IconComponent, IconDeleteComponent, IconBlockComponent, IconUnblockComponent, IconLeftArrowComponent, IconQuestionComponent, IconFaqComponent, IconCategoryComponent, IconNotificationComponent, IconWriteToUsComponent, IconRequestComponent, IconAvatarComponent, IconQuestionAssetsComponent],
+  declarations: [IconComponent, IconDeleteComponent, IconBlockComponent, IconUnblockComponent, IconLeftArrowComponent, IconQuestionComponent, IconFaqComponent, IconCategoryComponent, IconNotificationComponent, IconWriteToUsComponent, IconRequestComponent, IconAvatarComponent, IconQuestionAssetsComponent, IconMaximizeComponent, IconMinimizeComponent],
   exports: [
     IconComponent
   ],

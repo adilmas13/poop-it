@@ -7,6 +7,7 @@ import { zip } from 'rxjs'
 class AppState {
   notes: Note[]
   selectedNote: Note
+  isFullScreen = false
 }
 
 @Injectable()
@@ -47,4 +48,8 @@ export class AppStore extends BaseStore<AppState> {
   private saveToStorage = () => this.repository.saveToStorage(this.state.notes)
 
   private saveSelectedNoteToStorage = (id: string) => this.repository.setSelectedNote(id)
+
+  toggleFullScreen = () => this.setState({
+    isFullScreen : !this.state.isFullScreen
+  })
 }

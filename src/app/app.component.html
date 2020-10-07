@@ -1,11 +1,19 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
-    <app-menu (addNoteClick)="store.onAddNote()"></app-menu>
+    <app-menu
+      *ngIf="!state.isFullScreen"
+      (addNoteClick)="store.onAddNote()"></app-menu>
     <app-notes-list
+      *ngIf="!state.isFullScreen"
       [notes]="state.notes"
       [selectedNote]="state.selectedNote.id"
     (noteSelected)="store.onNoteSelected($event)"
     ></app-notes-list>
-    <app-composer [note]="state.selectedNote" (save)="store.save()"></app-composer>
+    <app-composer
+      [class.isFullScreen]="state.isFullScreen"
+      [note]="state.selectedNote" (save)="store.save()"></app-composer>
+    <app-icon
+      (click)="store.toggleFullScreen()"
+      [icon]="state.isFullScreen?'minimize' :'maximize'" class="screen-toggle"></app-icon>
   </div>
 </ng-container>
