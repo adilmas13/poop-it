@@ -10,7 +10,7 @@
   width: 60px;
   transition: all 0.3s ease-out; }
   .add-button:hover {
-    transform: scale(1.05); }
+    transform: scale(1.1); }
     .add-button:hover app-icon-plus {
       opacity: 1;
       transform: scale(1) rotate(0deg); }
