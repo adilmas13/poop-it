@@ -1,8 +1,8 @@
 <div class="card" [class.selected]="isSelected">
   <div class="title-and-time-wrapper">
-    <div class="title">{{note.title}}</div>
+    <div class="title">{{note.title | defaultNoteText:"Note"}}</div>
     <div class="time">{{note.createdOn | date}}</div>
   </div>
-  <div class="body">{{note.body}}</div>
+  <div class="body">{{note.body | defaultNoteText:"write something awesome"}}</div>
 
 </div>
