@@ -32,6 +32,7 @@ body {
 * {
   font-family: "Raleway", serif;
   box-sizing: border-box;
-  background: transparent; }
+  background: transparent;
+  color: var(--default-color); }
 
 /*# sourceMappingURL=styles.css.map */
