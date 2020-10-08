@@ -15,6 +15,8 @@ export type icons =
   | 'notification'
   | 'maximize'
   | 'minimize'
+  | 'poop'
+  | 'plus'
 
 @Component({
   selector: 'app-icon',

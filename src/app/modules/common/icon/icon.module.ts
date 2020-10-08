@@ -15,10 +15,12 @@ import { IconAvatarComponent } from './icon-avatar/icon-avatar.component'
 import { IconQuestionAssetsComponent } from './icon-question-assets/icon-question-assets.component'
 import { IconMaximizeComponent } from './icon-maximize/icon-maximize.component'
 import { IconMinimizeComponent } from './icon-minimize/icon-minimize.component'
+import { IconPoopComponent } from './icon-poop/icon-poop.component'
+import { IconPlusComponent } from './icon-plus/icon-plus.component'
 
 
 @NgModule({
-  declarations: [IconComponent, IconDeleteComponent, IconBlockComponent, IconUnblockComponent, IconLeftArrowComponent, IconQuestionComponent, IconFaqComponent, IconCategoryComponent, IconNotificationComponent, IconWriteToUsComponent, IconRequestComponent, IconAvatarComponent, IconQuestionAssetsComponent, IconMaximizeComponent, IconMinimizeComponent],
+  declarations: [IconComponent, IconDeleteComponent, IconBlockComponent, IconUnblockComponent, IconLeftArrowComponent, IconQuestionComponent, IconFaqComponent, IconCategoryComponent, IconNotificationComponent, IconWriteToUsComponent, IconRequestComponent, IconAvatarComponent, IconQuestionAssetsComponent, IconMaximizeComponent, IconMinimizeComponent, IconPoopComponent, IconPlusComponent],
   exports: [
     IconComponent
   ],

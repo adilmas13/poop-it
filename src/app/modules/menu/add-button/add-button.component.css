@@ -1,11 +1,42 @@
 .add-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
   cursor: pointer;
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   transition: all 0.3s ease-out; }
   .add-button:hover {
     transform: scale(1.05); }
+    .add-button:hover app-icon-plus {
+      opacity: 1;
+      transform: scale(1) rotate(0deg); }
+    .add-button:hover app-icon-poop {
+      opacity: 0;
+      transform: scale(0) rotate(-145deg); }
+  .add-button app-icon {
+    position: absolute; }
+  .add-button app-icon-poop {
+    transition: 0.5s ease-out all; }
+    .add-button app-icon-poop svg {
+      width: 40px;
+      height: 40px; }
+      .add-button app-icon-poop svg:hover {
+        transform: scale(1); }
+  .add-button app-icon-plus {
+    padding-top: 5px;
+    padding-left: 1px;
+    transition: 0.5s ease-out all;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0) rotate(145deg); }
+    .add-button app-icon-plus svg {
+      width: 30px;
+      height: 30px; }
+      .add-button app-icon-plus svg:hover {
+        transform: scale(1); }
 
 /*# sourceMappingURL=add-button.component.css.map */
