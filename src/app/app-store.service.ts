@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core'
 import { makeDefault, Note } from './models/note'
 import { BaseStore } from './store/base-store'
 import { NotesRepositoryService } from './repository/notes-repository.service'
-import { zip } from 'rxjs'
+import { Subject, zip } from 'rxjs'
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 
 class AppState {
   notes: Note[]
@@ -13,8 +14,23 @@ class AppState {
 @Injectable()
 export class AppStore extends BaseStore<AppState> {
 
+  private titleTextChanged: Subject<string> = new Subject()
+  private bodyTextChanged: Subject<string> = new Subject()
+
   constructor(private repository: NotesRepositoryService) {
     super(new AppState())
+    this.titleTextChanged.pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    ).subscribe(_ => {
+      this.save()
+    })
+    this.bodyTextChanged.pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    ).subscribe(_ => {
+      this.save()
+    })
   }
 
   getNotes = () => zip(this.repository.getNotes(), this.repository.getSelectedNote()).subscribe(
@@ -50,6 +66,51 @@ export class AppStore extends BaseStore<AppState> {
   private saveSelectedNoteToStorage = (id: string) => this.repository.setSelectedNote(id)
 
   toggleFullScreen = () => this.setState({
-    isFullScreen : !this.state.isFullScreen
+    isFullScreen: !this.state.isFullScreen
   })
+
+  toggleLock = () => {
+    const temp = this.state.selectedNote
+    temp.locked = !temp.locked
+    this.setState({
+      selectedNote: temp
+    })
+    this.save()
+  }
+
+  toggleTitleVisibility = () => {
+    const temp = this.state.selectedNote
+    temp.isTitleVisible = !temp.isTitleVisible
+    this.setState({
+      selectedNote: temp
+    })
+    this.save()
+  }
+
+  onTitleTextChange = ($event: KeyboardEvent) => {
+    // @ts-ignore
+    const text = $event.target.value
+    this.titleTextChanged.next(text)
+    const updated = {...this.state.selectedNote, title: text}
+    this.setState({
+      selectedNote: updated,
+      notes: this.state.notes.map(it => it.id === updated.id ? updated : it)
+    })
+  }
+
+  onBodyTextChange = ($event: KeyboardEvent) => {
+    // @ts-ignore
+    const text = $event.target.value
+    this.bodyTextChanged.next(text)
+    const updated = {...this.state.selectedNote, body: text}
+    this.setState({
+      selectedNote: updated,
+      notes: this.state.notes.map(it => it.id === updated.id ? updated : it)
+    })
+  }
+
+  destroy = () => {
+    this.titleTextChanged.unsubscribe()
+    this.bodyTextChanged.unsubscribe()
+  }
 }

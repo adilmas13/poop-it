@@ -5,7 +5,6 @@ export interface Note {
   locked: boolean;
   createdOn: number;
   isTitleVisible: boolean;
-  isSelected: boolean;
 }
 
 export class NotesWrapper {
@@ -21,7 +20,6 @@ export const makeDefault = (): Note => {
     locked: false,
     createdOn: time,
     isTitleVisible: false,
-    isSelected: true
   }
 }
 

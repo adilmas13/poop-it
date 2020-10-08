@@ -1,22 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { Note } from '../../models/note'
 
 @Component({
   selector: 'app-notes-list',
   templateUrl: './notes-list.component.html',
   styleUrls: ['./notes-list.component.scss'],
+  changeDetection : ChangeDetectionStrategy.OnPush,
 })
-export class NotesListComponent implements OnInit {
+export class NotesListComponent {
 
   @Input() notes: Note[]
   @Input() selectedNote: string
   @Output() noteSelected = new EventEmitter<number>()
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 
   trackByFn = (_, note: Note) => note.id
 
