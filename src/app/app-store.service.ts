@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { makeDefault, Note } from './models/note'
 import { BaseStore } from './store/base-store'
 import { NotesRepositoryService } from './repository/notes-repository.service'
-import { Subject, zip } from 'rxjs'
+import { Subject } from 'rxjs'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 
 class AppState {
@@ -33,13 +33,13 @@ export class AppStore extends BaseStore<AppState> {
     })
   }
 
-  getNotes = () => zip(this.repository.getNotes(), this.repository.getSelectedNote()).subscribe(
+  getNotes = () => this.repository.getActiveNotes().subscribe(
     (result) => this.onNotesSuccess(result)
   )
 
-  private onNotesSuccess = (result: any[]) => this.setState({
-    notes: result[0].notes,
-    selectedNote: result[0].notes.find(it => it.id === result[1])
+  private onNotesSuccess = (notes: Note[]) => this.setState({
+    notes,
+    selectedNote: notes[0]
   })
 
   save = () => this.saveToStorage()
@@ -112,5 +112,11 @@ export class AppStore extends BaseStore<AppState> {
   destroy = () => {
     this.titleTextChanged.unsubscribe()
     this.bodyTextChanged.unsubscribe()
+  }
+
+  deleteNote = (id: string) => {
+    this.repository.deleteNote(id).subscribe(
+      () => this.getNotes()
+    )
   }
 }

@@ -4,16 +4,16 @@
       *ngIf="!state.isFullScreen"
       (addNoteClick)="store.onAddNote()"></app-menu>
     <app-notes-list
-      *ngIf="!state.isFullScreen"
+      *ngIf="state.notes.length > 0 && !state.isFullScreen"
       [notes]="state.notes"
       [selectedNote]="state.selectedNote.id"
-    (noteSelected)="store.onNoteSelected($event)"
+      (noteSelected)="store.onNoteSelected($event)"
     ></app-notes-list>
     <app-composer
       [class.isFullScreen]="state.isFullScreen">
     </app-composer>
     <app-icon
       (click)="store.toggleFullScreen()"
-      [icon]="state.isFullScreen?'minimize' :'maximize'" class="screen-toggle"></app-icon>
+      [icon]="state.isFullScreen ? 'minimize' : 'maximize'" class="screen-toggle"></app-icon>
   </div>
 </ng-container>

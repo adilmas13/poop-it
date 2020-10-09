@@ -1,12 +1,25 @@
 @import "fonts";
 @import "colours";
+
 .parent {
   display: flex;
   width: 100vw;
   height: 100vh;
+
+  .listing-wrapper {
+    width: 350px;
+    padding: 20px;
+
+    app-icon-no-poop {
+      svg {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
 }
 
-.screen-toggle{
+.screen-toggle {
   position: absolute;
   right: 10px;
   bottom: 10px;

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NotesListComponent } from './notes-list.component';
 import { NoteComponent } from './note/note.component';
 import { DefaultNoteTextPipe } from './defaultNoteText.pipe'
+import { IconModule } from '../common/icon/icon.module'
 
 
 
@@ -12,7 +13,8 @@ import { DefaultNoteTextPipe } from './defaultNoteText.pipe'
         NotesListComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        IconModule
     ]
 })
 export class NotesListModule { }

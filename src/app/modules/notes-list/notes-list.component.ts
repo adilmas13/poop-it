@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { Note } from '../../models/note'
+import { AppStore } from '../../app-store.service'
 
 @Component({
   selector: 'app-notes-list',
@@ -14,5 +15,8 @@ export class NotesListComponent {
   @Output() noteSelected = new EventEmitter<number>()
 
   trackByFn = (_, note: Note) => note.id
+
+  constructor(public store: AppStore) {
+  }
 
 }

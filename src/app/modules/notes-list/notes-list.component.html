@@ -1,7 +1,11 @@
-<div class="parent">
-  <app-note *ngFor="let note of notes; index as i"
-            [note]="note"
-            [isSelected]="note.id === selectedNote"
-            (click)="noteSelected.emit(i)"
-  ></app-note>
-</div>
+<ng-container *ngIf="store.state$ | async as state">
+  <div class="parent">
+    <app-note *ngFor="let note of notes; index as i; trackBy: trackByFn"
+              [note]="note"
+              [class.selected]="note.id === selectedNote"
+              (delete)="store.deleteNote(note.id)"
+              (click)="noteSelected.emit(i)"
+    ></app-note>
+  </div>
+
+</ng-container>

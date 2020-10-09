@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 import { Note } from '../../../models/note'
 
 @Component({
@@ -10,5 +10,5 @@ import { Note } from '../../../models/note'
 export class NoteComponent {
 
   @Input() note: Note
-  @Input() isSelected: boolean
+  @Output() delete = new EventEmitter()
 }

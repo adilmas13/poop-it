@@ -2,28 +2,37 @@
 @import "colours";
 @import "fonts";
 
+:host{
+  &.selected {
+    .card{
+      border: 1px solid var(--primary-color);
+      transform: scale(0.98);
+    }
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 120px;
   border-radius: 5px;
-  //box-shadow: 0 1px 6px 0 var(--shadow-color);
   background: var(--background-color);
   margin-bottom: 20px;
   border: 1px solid var(--shadow-color);
   cursor: pointer;
   transition: 0.1s ease-out all;
   padding: 10px 20px;
+  position: relative;
 
   &:hover {
     box-shadow: 0 1px 6px 0 var(--shadow-color);
     transform: scale(1.01);
-  }
 
-  &.selected{
-    border: 1px solid var(--primary-color);
-    transform: scale(0.98);
+    app-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .title-and-time-wrapper {
@@ -47,6 +56,16 @@
     color: var(--default-color);
     opacity: 0.8;
     overflow: hidden;
+  }
+
+  app-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.2s ease-out all;
+    transition-delay: 300ms;
+    transform: scale(0);
   }
 
 }
