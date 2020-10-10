@@ -1,0 +1,51 @@
+/*
+Error: File to import not found or unreadable: fonts.
+        on line 1 of deleted-notes-list.component.scss
+
+1: @import "fonts";
+2: 
+3: .parent {
+4:   display: flex;
+5:   flex-direction: column;
+6:   height: 100%;
+
+Backtrace:
+deleted-notes-list.component.scss:1
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:310:in `visit_import'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/usr/local/bin/sass:23:in `load'
+/usr/local/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: fonts.\A         on line 1 of deleted-notes-list.component.scss\A \A 1: @import \"fonts\";\A 2: \A 3: .parent {\A 4:   display: flex;\A 5:   flex-direction: column;\A 6:   height: 100%;"; }

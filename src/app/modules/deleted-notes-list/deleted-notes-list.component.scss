@@ -1,0 +1,24 @@
+@import "fonts";
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+  width: 100%;
+
+  .no-notes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    .message {
+      @include font-bold;
+      font-size: 30px;
+      margin-top: 20px;
+    }
+  }
+}

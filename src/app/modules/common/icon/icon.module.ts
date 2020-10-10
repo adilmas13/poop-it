@@ -14,7 +14,8 @@ import { IconNotesComponent } from './icon-notes/icon-notes.component'
 @NgModule({
   declarations: [IconComponent, IconDeleteComponent, IconBlockComponent, IconUnblockComponent, IconMaximizeComponent, IconMinimizeComponent, IconPoopComponent, IconPlusComponent, IconNotesComponent],
   exports: [
-    IconComponent
+    IconComponent,
+    IconDeleteComponent
   ],
   imports: [
     CommonModule

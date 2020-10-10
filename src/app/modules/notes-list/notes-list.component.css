@@ -3,13 +3,6 @@
   flex-direction: column;
   height: 100%;
   overflow-y: scroll;
-  width: 350px;
-  padding: 20px; }
-
-::-webkit-scrollbar {
-  width: 0;
-  /* Remove scrollbar space */
-  background: transparent;
-  /* Optional: just make scrollbar invisible */ }
+  width: 100%; }
 
 /*# sourceMappingURL=notes-list.component.css.map */

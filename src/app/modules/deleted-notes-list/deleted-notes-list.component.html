@@ -7,5 +7,9 @@
               (click)="noteSelected.emit(i)"
               @inOut
     ></app-note>
+    <div class="no-notes" *ngIf="state.notes.length === 0">
+      <app-icon-no-poop></app-icon-no-poop>
+      <div class="message">No Notes</div>
+    </div>
   </div>
 </ng-container>

@@ -8,6 +8,7 @@ import { ComposerModule } from './modules/composer/composer.module'
 import { NotesListModule } from './modules/notes-list/notes-list.module'
 import { IconModule } from './modules/common/icon/icon.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { DeletedNotesListModule } from './modules/deleted-notes-list/deleted-notes-list.module'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     ComposerModule,
     NotesListModule,
     IconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DeletedNotesListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

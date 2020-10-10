@@ -4,13 +4,18 @@
       @inOut
       *ngIf="!state.isFullScreen"
       (addNoteClick)="store.onAddNote()"></app-menu>
-    <app-notes-list
-      @inOut
-      *ngIf="state.notes.length > 0 && !state.isFullScreen"
-      [notes]="state.notes"
-      [selectedNote]="state.selectedNote.id"
-      (noteSelected)="store.onNoteSelected($event)"
-    ></app-notes-list>
+    <div class="listing-wrapper"
+         *ngIf="!state.isFullScreen"
+         @inOut>
+      <app-notes-list
+        *ngIf="!state.isDeleteMode"
+        (noteSelected)="store.onNoteSelected($event)"
+      ></app-notes-list>
+      <app-deleted-notes-list
+        *ngIf="state.isDeleteMode"
+        (noteSelected)="store.onNoteSelected($event)"
+      ></app-deleted-notes-list>
+    </div>
     <app-composer
       [class.isFullScreen]="state.isFullScreen"
       [class.disable]="state.isDeleteMode && state.notes.length === 0"

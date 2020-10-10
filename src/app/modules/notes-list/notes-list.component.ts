@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core'
 import { Note } from '../../models/note'
 import { AppStore } from '../../app-store.service'
 import { animate, style, transition, trigger } from '@angular/animations'
@@ -23,8 +23,6 @@ import { animate, style, transition, trigger } from '@angular/animations'
 })
 export class NotesListComponent {
 
-  @Input() notes: Note[]
-  @Input() selectedNote: string
   @Output() noteSelected = new EventEmitter<number>()
 
   trackByFn = (_, note: Note) => note.id

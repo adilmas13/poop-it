@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [NotesListComponent, NoteComponent, DefaultNoteTextPipe],
   exports: [
-    NotesListComponent
+    NotesListComponent,
+    NoteComponent
   ],
   imports: [
     CommonModule,
