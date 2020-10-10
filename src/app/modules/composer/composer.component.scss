@@ -12,6 +12,7 @@
   background: var(--background-color);
   border: 1px solid var(--border-color);
   position: relative;
+  transition: 0.3s ease-out all;
 
   &.isFullScreen {
     border-top-left-radius: 0;

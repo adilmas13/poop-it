@@ -1,9 +1,11 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
     <app-menu
+      @inOut
       *ngIf="!state.isFullScreen"
       (addNoteClick)="store.onAddNote()"></app-menu>
     <app-notes-list
+      @inOut
       *ngIf="state.notes.length > 0 && !state.isFullScreen"
       [notes]="state.notes"
       [selectedNote]="state.selectedNote.id"
