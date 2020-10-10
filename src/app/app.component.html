@@ -12,7 +12,9 @@
       (noteSelected)="store.onNoteSelected($event)"
     ></app-notes-list>
     <app-composer
-      [class.isFullScreen]="state.isFullScreen">
+      [class.isFullScreen]="state.isFullScreen"
+      [class.disable]="state.isDeleteMode && state.notes.length === 0"
+    >
     </app-composer>
     <app-icon
       (click)="store.toggleFullScreen()"

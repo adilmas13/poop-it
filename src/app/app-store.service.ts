@@ -60,18 +60,14 @@ export class AppStore extends BaseStore<AppState> {
       selectedNote: newNote
     })
     this.saveToStorage()
-    this.saveSelectedNoteToStorage(this.state.selectedNote.id)
   }
 
   onNoteSelected = (index: number) => {
     const temp = this.state.notes[index]
     this.setState({selectedNote: temp})
-    this.saveSelectedNoteToStorage(temp.id)
   }
 
   private saveToStorage = () => this.repository.saveToStorage(this.state.notes)
-
-  private saveSelectedNoteToStorage = (id: string) => this.repository.setSelectedNote(id)
 
   toggleFullScreen = () => this.setState({
     isFullScreen: !this.state.isFullScreen

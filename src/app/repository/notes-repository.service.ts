@@ -10,7 +10,6 @@ import { NoteDelete } from '../models/note-delete'
 export class NotesRepositoryService {
 
   KEY_NOTES = 'notes'
-  KEY_NOTE_SELECTED = 'note.selected'
   KEY_NOTE_DELETED = 'note.deleted'
 
   constructor() {
@@ -44,14 +43,12 @@ export class NotesRepositoryService {
   getNotes = (): Observable<NotesWrapper> => {
     const notes = localStorage.getItem(this.KEY_NOTES)
     if (notes == null) {
-      const newNote = this.createAndAddNote()
-      localStorage.setItem(this.KEY_NOTE_SELECTED, newNote.id)
+      this.createAndAddNote()
       return of(JSON.parse(localStorage.getItem(this.KEY_NOTES)) as NotesWrapper)
     }
     const wrapper = JSON.parse(notes) as NotesWrapper
     if (wrapper.notes.length === 0) {
-      const newNote = this.createAndAddNote()
-      localStorage.setItem(this.KEY_NOTE_SELECTED, newNote.id)
+      this.createAndAddNote()
       return of(JSON.parse(localStorage.getItem(this.KEY_NOTES)) as NotesWrapper)
     } else {
       return of(JSON.parse(notes) as NotesWrapper)
@@ -71,8 +68,6 @@ export class NotesRepositoryService {
     wrapper.notes = notes
     localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
   }
-
-  setSelectedNote = (id: string) => localStorage.setItem(this.KEY_NOTE_SELECTED, id)
 
   deleteNote = (id: string) => {
     return this.getDeletedNotesModel().pipe(
