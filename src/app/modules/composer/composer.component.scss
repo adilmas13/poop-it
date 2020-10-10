@@ -10,7 +10,7 @@
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   background: var(--background-color);
-  border: 1px solid var(--shadow-color);
+  border: 1px solid var(--border-color);
   position: relative;
 
   &.isFullScreen {
@@ -57,7 +57,8 @@
     height: 50px;
     width: 50px;
     padding-top: 5px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px var(--shadow-color);
+    background: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +68,8 @@
     position: absolute;
     top: 20px;
     right: 70px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    box-shadow: 0 1px 2px 0 var(--shadow-color), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    background: var(--background-color);
     padding: 0 10px;
     color: var(--default-color);
     border-radius: 20px 50px 50px 20px;
@@ -96,7 +98,7 @@
     top: 50px;
     left: -18px;
     border-radius: 10px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    box-shadow: 0 1px 2px 0 var(--shadow-color), 0 1px 3px 1px  var(--shadow-color);
     background: var(--background-color);
     display: flex;
     font-size: 20px;
@@ -115,7 +117,7 @@
     position: absolute;
     top: 55px;
     left: 30px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    box-shadow: 0 1px 2px 0 var(--shadow-color), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
     padding: 0 10px;
     color: var(--default-color);
     border-radius: 50px 20px 20px 50px;
