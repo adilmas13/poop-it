@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { makeDefault, Note, NotesWrapper } from '../models/note'
+import { Note, NotesWrapper } from '../models/note'
 import { Observable, of, zip } from 'rxjs'
 import { flatMap, tap } from 'rxjs/operators'
 import { NoteDelete } from '../models/note-delete'
@@ -22,7 +22,7 @@ export class NotesRepositoryService {
         const deletedId = (both[1] as NoteDelete[]).map(it => it.id)
         const filteredNotes = notes.filter(note => (deletedId.findIndex(id => id === note.id)) < 0)
         if (filteredNotes.length === 0) {
-          return of([this.createAndAddNote()])
+          return of([new Note()])
         }
         return of(filteredNotes)
       })
@@ -41,29 +41,15 @@ export class NotesRepositoryService {
   }
 
   getNotes = (): Observable<NotesWrapper> => {
-    const notes = localStorage.getItem(this.KEY_NOTES)
-    if (notes == null) {
-      this.createAndAddNote()
-      return of(JSON.parse(localStorage.getItem(this.KEY_NOTES)) as NotesWrapper)
+    const str = localStorage.getItem(this.KEY_NOTES)
+    const notesWrapper = str ? JSON.parse(str) as NotesWrapper : new NotesWrapper()
+    if (notesWrapper.notes.length === 0) {
+      notesWrapper.notes.push(new Note())
     }
-    const wrapper = JSON.parse(notes) as NotesWrapper
-    if (wrapper.notes.length === 0) {
-      this.createAndAddNote()
-      return of(JSON.parse(localStorage.getItem(this.KEY_NOTES)) as NotesWrapper)
-    } else {
-      return of(JSON.parse(notes) as NotesWrapper)
-    }
+    return of<NotesWrapper>(notesWrapper)
   }
 
-  createAndAddNote = () => {
-    const note = makeDefault()
-    const wrapper = new NotesWrapper()
-    wrapper.notes = [note]
-    localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
-    return note
-  }
-
-  saveToStorage(notes: Note[]) {
+  saveToStorage = (notes: Note[]) => {
     const wrapper = new NotesWrapper()
     wrapper.notes = notes
     localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))

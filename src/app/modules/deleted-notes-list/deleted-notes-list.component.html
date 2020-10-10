@@ -5,7 +5,6 @@
               [class.selected]="note.id === state.selectedNote.id"
               (delete)="store.deleteNote(note.id)"
               (click)="noteSelected.emit(i)"
-              @inOut
     ></app-note>
     <div class="no-notes" *ngIf="state.notes.length === 0">
       <app-icon-no-poop></app-icon-no-poop>

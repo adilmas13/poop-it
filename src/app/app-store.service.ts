@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { makeDefault, Note } from './models/note'
+import { Note } from './models/note'
 import { BaseStore } from './store/base-store'
 import { NotesRepositoryService } from './repository/notes-repository.service'
 import { Subject } from 'rxjs'
@@ -53,7 +53,7 @@ export class AppStore extends BaseStore<AppState> {
     if (this.state.isDeleteMode) {
       return
     }
-    const newNote = makeDefault()
+    const newNote = new Note()
     this.state.notes.unshift(newNote)
     this.setState({
       notes: this.state.notes,

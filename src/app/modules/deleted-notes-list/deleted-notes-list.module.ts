@@ -4,6 +4,7 @@ import { DeletedNotesListComponent } from './deleted-notes-list.component';
 import { NotesListModule } from '../notes-list/notes-list.module'
 import { IconModule } from '../common/icon/icon.module'
 import { IconNoPoopComponent } from './icon-no-poop/icon-no-poop.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 
@@ -14,6 +15,7 @@ import { IconNoPoopComponent } from './icon-no-poop/icon-no-poop.component'
     ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
     NotesListModule
   ]
 })
