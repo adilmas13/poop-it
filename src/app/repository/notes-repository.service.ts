@@ -17,7 +17,7 @@ export class NotesRepositoryService {
   }
 
   getActiveNotes = () => {
-    return zip(this.getNotes(), this.getDeletedNotes()).pipe(
+    return zip(this.getNotes(), this.getDeletedNotesModel()).pipe(
       flatMap((both: any[]) => {
         const notes = (both[0] as NotesWrapper).notes
         const deletedId = (both[1] as NoteDelete[]).map(it => it.id)
@@ -25,6 +25,17 @@ export class NotesRepositoryService {
         if (filteredNotes.length === 0) {
           return of([this.createAndAddNote()])
         }
+        return of(filteredNotes)
+      })
+    )
+  }
+
+  getDeletedNotes = () => {
+    return zip(this.getNotes(), this.getDeletedNotesModel()).pipe(
+      flatMap((both: any[]) => {
+        const notes = (both[0] as NotesWrapper).notes
+        const deletedId = (both[1] as NoteDelete[]).map(it => it.id)
+        const filteredNotes = notes.filter(note => (deletedId.findIndex(id => id === note.id)) > -1)
         return of(filteredNotes)
       })
     )
@@ -64,13 +75,13 @@ export class NotesRepositoryService {
   setSelectedNote = (id: string) => localStorage.setItem(this.KEY_NOTE_SELECTED, id)
 
   deleteNote = (id: string) => {
-    return this.getDeletedNotes().pipe(
+    return this.getDeletedNotesModel().pipe(
       tap((notes: NoteDelete[]) => notes.push(new NoteDelete(id))),
       tap((notes: NoteDelete[]) => localStorage.setItem(this.KEY_NOTE_DELETED, JSON.stringify(notes)))
     )
   }
 
-  getDeletedNotes = () => {
+  getDeletedNotesModel = () => {
     const str = localStorage.getItem(this.KEY_NOTE_DELETED)
     const temp = str ? JSON.parse(str) as NoteDelete[] : []
     return of<NoteDelete[]>(temp)

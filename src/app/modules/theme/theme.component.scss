@@ -1,0 +1,32 @@
+$button-size: 40px;
+
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.parent {
+  height: 50px;
+  width: 50px;
+  background: var(--surface-color);
+  border-radius: 40px;
+  border-color: var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .button {
+    cursor: pointer;
+    width: $button-size;
+    height: $button-size;
+    border-radius: 50%;
+    background: var(--background-color);
+    transition: 0.3s ease-out;
+    padding: 5px;
+
+    &:hover{
+      transform: scale(1.3);
+    }
+  }
+}
