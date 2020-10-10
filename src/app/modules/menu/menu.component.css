@@ -7,7 +7,7 @@ Error: File to import not found or unreadable: colours.
 3: .menu-parent {
 4:   height: 100%;
 5:   width: 80px;
-6:   //box-shadow: 5px 0 10px -5px var(--shadow-color);
+6:   border: 1px solid var(--shadow-color);
 
 Backtrace:
 menu.component.scss:1
@@ -48,4 +48,4 @@ menu.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of menu.component.scss\A \A 1: @import \"colours\";\A 2: \A 3: .menu-parent {\A 4:   height: 100%;\A 5:   width: 80px;\A 6:   //box-shadow: 5px 0 10px -5px var(--shadow-color);"; }
+  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of menu.component.scss\A \A 1: @import \"colours\";\A 2: \A 3: .menu-parent {\A 4:   height: 100%;\A 5:   width: 80px;\A 6:   border: 1px solid var(--shadow-color);"; }

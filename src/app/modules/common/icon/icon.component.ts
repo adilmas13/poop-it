@@ -8,6 +8,7 @@ export type icons =
   | 'minimize'
   | 'poop'
   | 'plus'
+  | 'notes'
 
 @Component({
   selector: 'app-icon',

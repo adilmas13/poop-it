@@ -9,6 +9,7 @@ class AppState {
   notes: Note[]
   selectedNote: Note
   isFullScreen = false
+  isDeleteMode = false
 }
 
 @Injectable()
@@ -37,6 +38,10 @@ export class AppStore extends BaseStore<AppState> {
     (result) => this.onNotesSuccess(result)
   )
 
+  getDeletedNotes = () => this.repository.getDeletedNotes().subscribe(
+    (result) => this.onNotesSuccess(result)
+  )
+
   private onNotesSuccess = (notes: Note[]) => this.setState({
     notes,
     selectedNote: notes[0]
@@ -45,6 +50,9 @@ export class AppStore extends BaseStore<AppState> {
   save = () => this.saveToStorage()
 
   onAddNote = () => {
+    if (this.state.isDeleteMode) {
+      return
+    }
     const newNote = makeDefault()
     this.state.notes.unshift(newNote)
     this.setState({
@@ -118,5 +126,23 @@ export class AppStore extends BaseStore<AppState> {
     this.repository.deleteNote(id).subscribe(
       () => this.getNotes()
     )
+  }
+
+  enableDeleteMode = () => {
+    if (!this.state.isDeleteMode) {
+      this.setState({
+        isDeleteMode: true
+      })
+      this.getDeletedNotes()
+    }
+  }
+
+  enableNotesMode = () => {
+    if (this.state.isDeleteMode) {
+      this.setState({
+        isDeleteMode: false
+      })
+      this.getNotes()
+    }
   }
 }

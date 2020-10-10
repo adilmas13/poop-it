@@ -1,4 +1,7 @@
-<div class="add-button">
-  <app-icon icon="plus" [isSelected]="true"></app-icon>
-  <app-icon icon="poop" isSelected></app-icon>
-</div>
+<ng-container *ngIf="store.state$ | async as state">
+  <div class="add-button" [class.active]="!state.isDeleteMode">
+    <app-icon icon="plus" [isSelected]="true"></app-icon>
+    <app-icon icon="poop" isSelected></app-icon>
+  </div>
+
+</ng-container>

@@ -1,3 +1,15 @@
-<div class="menu-parent">
-  <app-add-button (click)="addNoteClick.emit()"></app-add-button>
-</div>
+<ng-container *ngIf="store.state$ | async as state">
+  <div class="menu-parent">
+    <app-add-button (click)="addNoteClick.emit()"></app-add-button>
+    <div class="options-wrapper">
+      <app-icon icon="notes"
+                (click)="store.enableNotesMode()"
+                [isSelected]="!state.isDeleteMode"></app-icon>
+      <app-icon icon="delete"
+                (click)="store.enableDeleteMode()"
+                [isSelected]="state.isDeleteMode"></app-icon>
+    </div>
+    <app-theme></app-theme>
+  </div>
+
+</ng-container>

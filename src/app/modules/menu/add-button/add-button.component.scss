@@ -10,17 +10,19 @@
   width: 60px;
   transition: all 0.3s ease-out;
 
-  &:hover {
-    transform: scale(1.1);
+  &.active{
+    &:hover {
+      transform: scale(1.1);
 
-    app-icon-plus {
-      opacity: 1;
-      transform: scale(1) rotate(0deg);
-    }
+      app-icon-plus {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
 
-    app-icon-poop {
-      opacity: 0;
-      transform: scale(0) rotate(-145deg);
+      app-icon-poop {
+        opacity: 0;
+        transform: scale(0) rotate(-145deg);
+      }
     }
   }
 
