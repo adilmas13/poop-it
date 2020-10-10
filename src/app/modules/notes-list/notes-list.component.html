@@ -5,6 +5,7 @@
               [class.selected]="note.id === selectedNote"
               (delete)="store.deleteNote(note.id)"
               (click)="noteSelected.emit(i)"
+              @inOut
     ></app-note>
   </div>
 
