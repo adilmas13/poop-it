@@ -43,6 +43,11 @@
       font-size: 16px;
       color: var(--default-color);
       @include font-semi-bold;
+      height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: 10px;
     }
 
     .time {
@@ -52,20 +57,25 @@
 
   .body {
     font-size: 14px;
-    flex: 1;
     color: var(--default-color);
     opacity: 0.8;
     overflow: hidden;
+    line-height: 1.5;
+    height: 75px;
+    text-overflow: ellipsis;
+    padding-top: 10px;
   }
 
   app-icon {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 2px;
+    right: 2px;
     opacity: 0;
     transition: 0.2s ease-out all;
     transition-delay: 300ms;
     transform: scale(0);
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
   }
 
 }
