@@ -47,7 +47,7 @@ export class AppStore extends BaseStore<AppState> {
     selectedNote: notes[0]
   })
 
-  save = () => this.saveToStorage()
+  private save = () => this.repository.updateNote(this.state.selectedNote).subscribe()
 
   onAddNote = () => {
     if (this.state.isDeleteMode) {
@@ -59,15 +59,13 @@ export class AppStore extends BaseStore<AppState> {
       notes: this.state.notes,
       selectedNote: newNote
     })
-    this.saveToStorage()
+    this.repository.addNote(newNote).subscribe()
   }
 
   onNoteSelected = (index: number) => {
     const temp = this.state.notes[index]
     this.setState({selectedNote: temp})
   }
-
-  private saveToStorage = () => this.repository.saveToStorage(this.state.notes)
 
   toggleFullScreen = () => this.setState({
     isFullScreen: !this.state.isFullScreen
@@ -119,9 +117,7 @@ export class AppStore extends BaseStore<AppState> {
   }
 
   deleteNote = (id: string) => {
-    this.repository.deleteNote(id).subscribe(
-      () => this.getNotes()
-    )
+    this.repository.deleteNote(id).subscribe(() => this.getNotes())
   }
 
   enableDeleteMode = () => {

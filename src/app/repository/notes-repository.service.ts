@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Note, NotesWrapper } from '../models/note'
 import { Observable, of, zip } from 'rxjs'
-import { flatMap, tap } from 'rxjs/operators'
+import { flatMap, map, tap } from 'rxjs/operators'
 import { NoteDelete } from '../models/note-delete'
 
 @Injectable({
@@ -40,19 +40,13 @@ export class NotesRepositoryService {
     )
   }
 
-  getNotes = (): Observable<NotesWrapper> => {
+  private getNotes = (): Observable<NotesWrapper> => {
     const str = localStorage.getItem(this.KEY_NOTES)
     const notesWrapper = str ? JSON.parse(str) as NotesWrapper : new NotesWrapper()
     if (notesWrapper.notes.length === 0) {
       notesWrapper.notes.push(new Note())
     }
     return of<NotesWrapper>(notesWrapper)
-  }
-
-  saveToStorage = (notes: Note[]) => {
-    const wrapper = new NotesWrapper()
-    wrapper.notes = notes
-    localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
   }
 
   deleteNote = (id: string) => {
@@ -67,4 +61,27 @@ export class NotesRepositoryService {
     const temp = str ? JSON.parse(str) as NoteDelete[] : []
     return of<NoteDelete[]>(temp)
   }
+
+  addNote = (note: Note) => this.getNotes().pipe(
+    tap((wrapper: NotesWrapper) => wrapper.notes.unshift(note)),
+    tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))
+  )
+
+  updateNote = (note: Note) => {
+    const reducer = (accumulator: Note[], currentNote: Note) => {
+      accumulator.push(currentNote.id === note.id ? note : currentNote)
+      return accumulator
+    }
+    return this.getNotes().pipe(
+      map((wrapper: NotesWrapper) => {
+        const notes = wrapper.notes.reduce(reducer, [])
+        const tempWrapper = new NotesWrapper()
+        tempWrapper.notes = notes
+        return tempWrapper
+      }),
+      tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))
+    )
+  }
+
+  private saveAllNotes = (wrapper: NotesWrapper) => localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
 }
