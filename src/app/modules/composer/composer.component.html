@@ -1,5 +1,10 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div *ngIf="state.selectedNote">
+    <div class="unable-to-delete-message"
+         *ngIf="state.isDeleteMode"
+         @heightAnim
+    >to edit this note, you'll need to restore it
+    </div>
     <div class="parent"
          [class.locked]="state.selectedNote.locked || state.isDeleteMode">
       <label>
@@ -15,6 +20,7 @@
               [ngModel]="state.selectedNote.body"
               (keyup)="store.onBodyTextChange($event)"></textarea>
       </label>
+
     </div>
 
     <div class="lock-message"
@@ -37,5 +43,4 @@
     <div class="h-btn-msg"
          [class.visible]="isHeadlineButtonVisible">{{state.selectedNote.isTitleVisible ? "hide title" : "show title"}}</div>
   </div>
-
 </ng-container>

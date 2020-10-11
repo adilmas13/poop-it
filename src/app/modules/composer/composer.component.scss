@@ -4,7 +4,6 @@
 :host {
   flex: 1;
   box-sizing: border-box;
-  padding: 30px 25px 20px;
   display: flex;
   flex-direction: column;
   border-top-left-radius: 50px;
@@ -30,10 +29,26 @@
   }
 
   .parent {
+    padding: 30px 25px 20px;
     &.locked {
       pointer-events: none;
       user-select: none;
     }
+
+  }
+
+  .unable-to-delete-message {
+    height: 50px;
+    width: 100%;
+    background: var(--surface-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 50px;
+    overflow: hidden;
+    font-size: 20px;
+    text-align: center;
+    @include font-semi-bold
   }
 
   .heading {
@@ -145,5 +160,6 @@
       transform: translateX(0);
     }
   }
+
 }
 
