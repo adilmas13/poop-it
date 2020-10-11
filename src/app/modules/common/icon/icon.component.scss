@@ -18,7 +18,7 @@ svg {
   height: 20px;
   cursor: pointer;
   transition: 0.3s ease-out;
-  fill: var(--icon-color);
+  fill: var(--default-color);
 
   &:hover {
     transform: scale(1.3);
