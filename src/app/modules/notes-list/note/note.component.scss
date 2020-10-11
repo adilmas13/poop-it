@@ -68,14 +68,21 @@
 
   app-icon {
     position: absolute;
-    bottom: 2px;
-    right: 2px;
+    bottom: 0;
+    right: 0;
     opacity: 0;
     transition: 0.2s ease-out all;
     transition-delay: 300ms;
     transform: scale(0);
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
+    background: var(--surface-color);
+    height: 40px;
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    width: 40px;
+    transform-origin: right bottom;
+    padding: 5px 0 0 5px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 5px;
   }
 
 }
