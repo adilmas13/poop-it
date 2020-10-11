@@ -6,7 +6,13 @@
   <div class="body">{{note.body | defaultNoteText:"write something awesome"}}</div>
 
   <app-icon
+    *ngIf="!deleteMode"
     [icon]="'delete'"
     (click)="delete.emit()">
+  </app-icon>
+  <app-icon
+    *ngIf="deleteMode"
+    [icon]="'recycle'"
+    (click)="recycle.emit()">
   </app-icon>
 </div>

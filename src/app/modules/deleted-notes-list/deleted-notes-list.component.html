@@ -2,8 +2,9 @@
   <div class="parent">
     <app-note *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
               [note]="note"
+              [deleteMode]="true"
               [class.selected]="note.id === state.selectedNote.id"
-              (delete)="store.deleteNote(note.id)"
+              (recycle)="store.restoreNote(note.id)"
               (click)="noteSelected.emit(i)"
     ></app-note>
     <div class="no-notes" *ngIf="state.notes.length === 0">

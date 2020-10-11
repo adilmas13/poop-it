@@ -11,5 +11,7 @@ import { animate, style, transition, trigger } from '@angular/animations'
 export class NoteComponent {
 
   @Input() note: Note
+  @Input() deleteMode = false
   @Output() delete = new EventEmitter()
+  @Output() recycle = new EventEmitter()
 }

@@ -10,6 +10,7 @@ export type icons =
   | 'plus'
   | 'notes'
   | 'no-poop'
+  | 'recycle'
 
 @Component({
   selector: 'app-icon',

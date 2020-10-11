@@ -137,4 +137,7 @@ export class AppStore extends BaseStore<AppState> {
       this.getNotes()
     }
   }
+
+  restoreNote = (id: string) => this.repository.removeNoteForDeleteList(id).subscribe(() => this.getDeletedNotes())
+
 }

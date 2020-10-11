@@ -84,4 +84,17 @@ export class NotesRepositoryService {
   }
 
   private saveAllNotes = (wrapper: NotesWrapper) => localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
+
+  removeNoteForDeleteList = (id: string) => {
+   return  this.getDeletedNotesModel().pipe(
+      map((models: NoteDelete[]) => {
+        const index = models.findIndex(it => it.id === id)
+        if (index > -1) {
+          models.splice(index, 1)
+        }
+        return models
+      }),
+      tap((models: NoteDelete[]) => localStorage.setItem(this.KEY_NOTE_DELETED, JSON.stringify(models)))
+    )
+  }
 }

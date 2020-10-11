@@ -9,10 +9,11 @@ import { IconMinimizeComponent } from './icon-minimize/icon-minimize.component'
 import { IconPoopComponent } from './icon-poop/icon-poop.component'
 import { IconPlusComponent } from './icon-plus/icon-plus.component'
 import { IconNotesComponent } from './icon-notes/icon-notes.component'
+import { IconRecycleComponent } from './icon-recycle/icon-recycle.component'
 
 
 @NgModule({
-  declarations: [IconComponent, IconDeleteComponent, IconBlockComponent, IconUnblockComponent, IconMaximizeComponent, IconMinimizeComponent, IconPoopComponent, IconPlusComponent, IconNotesComponent],
+  declarations: [IconComponent, IconDeleteComponent, IconBlockComponent, IconUnblockComponent, IconMaximizeComponent, IconMinimizeComponent, IconPoopComponent, IconPlusComponent, IconNotesComponent, IconRecycleComponent],
   exports: [
     IconComponent,
     IconDeleteComponent
