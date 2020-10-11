@@ -5,7 +5,8 @@
               [class.selected]="note.id === state.selectedNote.id"
               (delete)="store.deleteNote(note.id)"
               (click)="noteSelected.emit(i)"
-              @inOut
+              [@.disabled]="disabledAnimation | async"
+              [@noteAnim]
     ></app-note>
   </div>
 </ng-container>

@@ -1,33 +1,29 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core'
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core'
 import { Note } from '../../models/note'
 import { AppStore } from '../../app-store.service'
-import { animate, style, transition, trigger } from '@angular/animations'
+import { BehaviorSubject } from 'rxjs'
+import { noteCardAnimation } from '../../animations/note-card-animation'
 
 @Component({
   selector: 'app-notes-list',
   templateUrl: './notes-list.component.html',
   styleUrls: ['./notes-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('inOut', [
-      transition(':enter', [
-        style({height: 0, opacity: 0, transform: 'scale(0)'}),
-        animate('0.3s ease-out', style({height: '*', opacity: 1, transform: 'scale(1)'}))
-      ]),
-      transition(':leave', [
-        style({height: '*', opacity: 1}),
-        animate('0.3s ease-out', style({height: 0, opacity: 0, transform: 'scale(0)'}))
-      ])
-    ])
-  ]
+  animations: [noteCardAnimation]
 })
-export class NotesListComponent {
+export class NotesListComponent implements AfterViewInit {
 
   @Output() noteSelected = new EventEmitter<number>()
+  disabledAnimation = new BehaviorSubject<boolean>(true)
 
   trackByFn = (_, note: Note) => note.id
 
   constructor(public store: AppStore) {
   }
 
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.disabledAnimation.next(false)
+    }, 500)
+  }
 }
