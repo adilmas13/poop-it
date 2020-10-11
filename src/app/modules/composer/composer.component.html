@@ -7,12 +7,13 @@
     </div>
     <div class="parent"
          [class.locked]="state.selectedNote.locked || state.isDeleteMode">
-      <label>
+      <label style="height: 40px">
         <input class="heading"
                placeholder="heading comes here"
+               (keyup)="store.onTitleTextChange($event)"
                *ngIf="state.selectedNote.isTitleVisible"
                [ngModel]="state.selectedNote.title"
-               (keyup)="store.onTitleTextChange($event)"/>
+        />
       </label>
       <label>
     <textarea class="body"
@@ -29,7 +30,7 @@
     </div>
 
     <app-icon class="lock"
-              @scaleDown
+              @scaleAnim
               *ngIf="!state.isDeleteMode"
               [icon]="state.selectedNote.locked ? 'block': 'unblock'"
               (click)="store.toggleLock()">
