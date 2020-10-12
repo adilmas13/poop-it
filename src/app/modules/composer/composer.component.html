@@ -9,7 +9,7 @@
          [class.locked]="state.selectedNote.locked || state.isDeleteMode">
       <label style="height: 40px">
         <input class="heading"
-               placeholder="heading comes here"
+               placeholder="need a title?? add it here :)"
                (keyup)="store.onTitleTextChange($event)"
                *ngIf="state.selectedNote.isTitleVisible"
                [ngModel]="state.selectedNote.title"
