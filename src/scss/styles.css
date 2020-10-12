@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700&display=swap");
 :root {
   --primary-color: #cfcf19; }
 
@@ -30,7 +28,7 @@ body {
   background: var(--surface-color); }
 
 * {
-  font-family: "Raleway", serif;
+  font-family: 'Grandstander', cursive;
   box-sizing: border-box;
   background: transparent;
   color: var(--default-color); }
