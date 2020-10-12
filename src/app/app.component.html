@@ -1,24 +1,24 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
     <app-menu
-      @inOut
+      (addNoteClick)="store.onAddNote()"
       *ngIf="!state.isFullScreen"
-      (addNoteClick)="store.onAddNote()"></app-menu>
-    <div class="listing-wrapper"
-         *ngIf="!state.isFullScreen"
-         @inOut>
+      @inOut></app-menu>
+    <div *ngIf="!state.isFullScreen"
+         @inOut
+         class="listing-wrapper">
       <app-notes-list
-        *ngIf="!state.isDeleteMode"
         (noteSelected)="store.onNoteSelected($event)"
+        *ngIf="!state.isDeleteMode"
       ></app-notes-list>
       <app-deleted-notes-list
-        *ngIf="state.isDeleteMode"
         (noteSelected)="store.onNoteSelected($event)"
+        *ngIf="state.isDeleteMode"
       ></app-deleted-notes-list>
     </div>
     <app-composer
-      [class.isFullScreen]="state.isFullScreen"
       [class.disable]="state.isDeleteMode && state.notes.length === 0"
+      [class.isFullScreen]="state.isFullScreen"
     >
     </app-composer>
     <app-icon

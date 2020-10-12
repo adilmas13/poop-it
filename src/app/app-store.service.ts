@@ -42,11 +42,6 @@ export class AppStore extends BaseStore<AppState> {
     (result) => this.onNotesSuccess(result)
   )
 
-  private onNotesSuccess = (notes: Note[]) => this.setState({
-    notes,
-    selectedNote: notes[0]
-  })
-
   onAddNote = () => {
     if (this.state.isDeleteMode) {
       return
@@ -133,5 +128,10 @@ export class AppStore extends BaseStore<AppState> {
   }
 
   restoreNote = (id: string) => this.repository.removeNoteForDeleteList(id).subscribe(() => this.getDeletedNotes())
+
+  private onNotesSuccess = (notes: Note[]) => this.setState({
+    notes,
+    selectedNote: notes[0]
+  })
 
 }

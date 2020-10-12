@@ -2,9 +2,9 @@
 @import "colours";
 @import "fonts";
 
-:host{
+:host {
   &.selected {
-    .card{
+    .card {
       border: 1px solid var(--primary-color);
       transform: scale(0.98);
     }

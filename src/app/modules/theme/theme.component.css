@@ -1,7 +1,8 @@
 :host {
   display: flex;
   align-items: center;
-  position: relative; }
+  position: relative;
+}
 
 .parent {
   height: 50px;
@@ -11,16 +12,21 @@
   border-color: var(--border-color);
   display: flex;
   align-items: center;
-  justify-content: center; }
-  .parent .button {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--background-color);
-    transition: 0.3s ease-out;
-    padding: 5px; }
-    .parent .button:hover {
-      transform: scale(1.3); }
+  justify-content: center;
+}
+
+.parent .button {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--background-color);
+  transition: 0.3s ease-out;
+  padding: 5px;
+}
+
+.parent .button:hover {
+  transform: scale(1.3);
+}
 
 /*# sourceMappingURL=theme.component.css.map */

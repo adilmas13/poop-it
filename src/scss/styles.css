@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700&display=swap");
+
 :root {
-  --primary-color: #cfcf19; }
+  --primary-color: #cfcf19;
+}
 
 .theme-light {
   --default-color: #474848;
@@ -8,7 +10,8 @@
   --surface-color: #F6F7Fb;
   --shadow-color: #e2e2e2;
   --border-color: #e8e8e8;
-  --icon-color: #000000; }
+  --icon-color: #000000;
+}
 
 .theme-dark {
   --default-color: #FFFFFF;
@@ -16,27 +19,32 @@
   --surface-color: #233449;
   --shadow-color: #0f1318;
   --border-color: #253c56;
-  --icon-color: #ffffff; }
+  --icon-color: #ffffff;
+}
 
 html, body {
-  height: 100%; }
+  height: 100%;
+}
 
 body {
   font-weight: 400;
   margin: 0;
   color: var(--default-color);
-  background: var(--surface-color); }
+  background: var(--surface-color);
+}
 
 * {
   font-family: 'Grandstander', cursive;
   box-sizing: border-box;
   background: transparent;
-  color: var(--default-color); }
+  color: var(--default-color);
+}
 
 ::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
   background: transparent;
-  /* Optional: just make scrollbar invisible */ }
+  /* Optional: just make scrollbar invisible */
+}
 
 /*# sourceMappingURL=styles.css.map */

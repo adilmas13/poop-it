@@ -1,17 +1,17 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
-    <app-note *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
-              [class.selected]="note.id === state.selectedNote.id"
-              [note]="note"
-              [deleteMode]="true"
+    <app-note (click)="noteSelected.emit(i)"
               (recycle)="store.restoreNote(note.id)"
-              (click)="noteSelected.emit(i)"
-              [@.disabled]="disabledAnimation | async"
+              *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
               @noteAnim
+              [@.disabled]="disabledAnimation | async"
+              [class.selected]="note.id === state.selectedNote.id"
+              [deleteMode]="true"
+              [note]="note"
     ></app-note>
-    <div class="no-notes"
-         *ngIf="state.notes.length === 0"
-         @scaleAnim>
+    <div *ngIf="state.notes.length === 0"
+         @scaleAnim
+         class="no-notes">
       <app-icon-no-poop></app-icon-no-poop>
       <div class="message">nothing to show here</div>
     </div>

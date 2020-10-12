@@ -37,16 +37,6 @@ export class NotesRepositoryService {
     )
   }
 
-  private getNotes = (): Observable<NotesWrapper> => {
-    const str = localStorage.getItem(this.KEY_NOTES)
-    const notesWrapper = str ? JSON.parse(str) as NotesWrapper : new NotesWrapper()
-    if (notesWrapper.notes.length === 0) {
-      notesWrapper.notes.push(new Note())
-      this.saveAllNotes(notesWrapper)
-    }
-    return of<NotesWrapper>(notesWrapper)
-  }
-
   deleteNote = (id: string) => {
     const reducer = (accumulator: Note[], currentNote: Note) => {
       if (currentNote.id === id) {
@@ -91,6 +81,35 @@ export class NotesRepositoryService {
       note.locked = isLocked
     })
 
+  removeNoteForDeleteList = (id: string) => {
+    const reducer = (accumulator: Note[], currentNote: Note) => {
+      if (currentNote.id === id) {
+        currentNote.deleteTime = null
+      }
+      accumulator.push(currentNote)
+      return accumulator
+    }
+    return this.getNotes().pipe(
+      map((wrapper: NotesWrapper) => {
+        const notes = wrapper.notes.reduce(reducer, [])
+        const tempWrapper = new NotesWrapper()
+        tempWrapper.notes = notes
+        return tempWrapper
+      }),
+      tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))
+    )
+  }
+
+  private getNotes = (): Observable<NotesWrapper> => {
+    const str = localStorage.getItem(this.KEY_NOTES)
+    const notesWrapper = str ? JSON.parse(str) as NotesWrapper : new NotesWrapper()
+    if (notesWrapper.notes.length === 0) {
+      notesWrapper.notes.push(new Note())
+      this.saveAllNotes(notesWrapper)
+    }
+    return of<NotesWrapper>(notesWrapper)
+  }
+
   private updateNote = (id: string, block: (Note) => void) => {
     const reducer = (accumulator: Note[], currentNote: Note) => {
       if (currentNote.id === id) {
@@ -111,23 +130,4 @@ export class NotesRepositoryService {
   }
 
   private saveAllNotes = (wrapper: NotesWrapper) => localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
-
-  removeNoteForDeleteList = (id: string) => {
-    const reducer = (accumulator: Note[], currentNote: Note) => {
-      if (currentNote.id === id) {
-        currentNote.deleteTime = null
-      }
-      accumulator.push(currentNote)
-      return accumulator
-    }
-    return this.getNotes().pipe(
-      map((wrapper: NotesWrapper) => {
-        const notes = wrapper.notes.reduce(reducer, [])
-        const tempWrapper = new NotesWrapper()
-        tempWrapper.notes = notes
-        return tempWrapper
-      }),
-      tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))
-    )
-  }
 }

@@ -1,12 +1,12 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
-    <app-note *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
-              [note]="note"
-              [class.selected]="note.id === state.selectedNote.id"
+    <app-note (click)="noteSelected.emit(i)"
               (delete)="store.deleteNote(note.id)"
-              (click)="noteSelected.emit(i)"
+              *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
               [@.disabled]="disabledAnimation | async"
               [@noteAnim]
+              [class.selected]="note.id === state.selectedNote.id"
+              [note]="note"
     ></app-note>
   </div>
 </ng-container>

@@ -1,47 +1,47 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div *ngIf="state.selectedNote">
-    <div class="unable-to-delete-message"
-         *ngIf="state.isDeleteMode"
+    <div *ngIf="state.isDeleteMode"
          @heightAnim
+         class="unable-to-delete-message"
     >to edit this note, you'll need to restore it
     </div>
-    <div class="parent"
-         [class.locked]="state.selectedNote.locked || state.isDeleteMode">
+    <div [class.locked]="state.selectedNote.locked || state.isDeleteMode"
+         class="parent">
       <label style="height: 40px">
-        <input class="heading"
-               placeholder="need a title?? add it here :)"
-               (keyup)="store.onTitleTextChange($event)"
+        <input (keyup)="store.onTitleTextChange($event)"
                *ngIf="state.selectedNote.isTitleVisible"
                [ngModel]="state.selectedNote.title"
+               class="heading"
+               placeholder="need a title?? add it here :)"
         />
       </label>
       <label>
-    <textarea class="body"
-              placeholder="write something awesome"
+    <textarea (keyup)="store.onBodyTextChange($event)"
               [ngModel]="state.selectedNote.body"
-              (keyup)="store.onBodyTextChange($event)"></textarea>
+              class="body"
+              placeholder="write something awesome"></textarea>
       </label>
 
     </div>
 
-    <div class="lock-message"
-         *ngIf="!state.isDeleteMode"
-         [class.visible]="state.selectedNote.locked">note is locked from editing
+    <div *ngIf="!state.isDeleteMode"
+         [class.visible]="state.selectedNote.locked"
+         class="lock-message">note is locked from editing
     </div>
 
-    <app-icon class="lock"
-              @scaleAnim
+    <app-icon (click)="store.toggleLock()"
               *ngIf="!state.isDeleteMode"
+              @scaleAnim
               [icon]="state.selectedNote.locked ? 'block': 'unblock'"
-              (click)="store.toggleLock()">
+              class="lock">
     </app-icon>
 
-    <div class="h-btn"
+    <div (click)="store.toggleTitleVisibility()"
          (mouseenter)="isHeadlineButtonVisible = true"
          (mouseout)="isHeadlineButtonVisible = false"
-         (click)="store.toggleTitleVisibility()">{{state.selectedNote.isTitleVisible ? "h-" : "h+"}}</div>
+         class="h-btn">{{state.selectedNote.isTitleVisible ? "h-" : "h+"}}</div>
 
-    <div class="h-btn-msg"
-         [class.visible]="isHeadlineButtonVisible">{{state.selectedNote.isTitleVisible ? "hide title" : "show title"}}</div>
+    <div [class.visible]="isHeadlineButtonVisible"
+         class="h-btn-msg">{{state.selectedNote.isTitleVisible ? "hide title" : "show title"}}</div>
   </div>
 </ng-container>

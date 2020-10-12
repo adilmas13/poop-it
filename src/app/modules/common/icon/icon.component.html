@@ -1,4 +1,4 @@
-<div class="icon-wrapper" [class.isSelected]="isSelected">
+<div [class.isSelected]="isSelected" class="icon-wrapper">
   <ng-container [ngSwitch]="icon">
     <app-icon-delete *ngSwitchCase="'delete'"></app-icon-delete>
     <app-icon-block *ngSwitchCase="'block'"></app-icon-block>

@@ -16,10 +16,10 @@ export class NotesListComponent implements AfterViewInit {
   @Output() noteSelected = new EventEmitter<number>()
   disabledAnimation = new BehaviorSubject<boolean>(true)
 
-  trackByFn = (_, note: Note) => note.id
-
   constructor(public store: AppStore) {
   }
+
+  trackByFn = (_, note: Note) => note.id
 
   ngAfterViewInit(): void {
     setTimeout(() => {

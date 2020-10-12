@@ -1,9 +1,9 @@
 <ng-container *ngIf="service.theme$ | async as theme">
   <div class="parent">
-    <img class="button"
+    <img (click)="service.toggleTheme()"
          [src]="theme === 'theme-dark' ? 'assets/moon.svg' : 'assets/sun.svg'"
-         (click)="service.toggleTheme()"
          alt="theme"
+         class="button"
     />
   </div>
 

@@ -3,7 +3,7 @@ Error: File to import not found or unreadable: fonts.
         on line 1 of deleted-notes-list.component.scss
 
 1: @import "fonts";
-2: 
+2:
 3: .parent {
 4:   display: flex;
 5:   flex-direction: column;
@@ -48,4 +48,5 @@ deleted-notes-list.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: fonts.\A         on line 1 of deleted-notes-list.component.scss\A \A 1: @import \"fonts\";\A 2: \A 3: .parent {\A 4:   display: flex;\A 5:   flex-direction: column;\A 6:   height: 100%;"; }
+  content: "Error: File to import not found or unreadable: fonts.\A         on line 1 of deleted-notes-list.component.scss\A \A 1: @import \"fonts\";\A 2: \A 3: .parent {\A 4:   display: flex;\A 5:   flex-direction: column;\A 6:   height: 100%;";
+}

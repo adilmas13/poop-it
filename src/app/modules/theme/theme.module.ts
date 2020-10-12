@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ThemeComponent } from './theme.component';
-
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { ThemeComponent } from './theme.component'
 
 
 @NgModule({
@@ -13,4 +12,5 @@ import { ThemeComponent } from './theme.component';
     CommonModule
   ]
 })
-export class ThemeModule { }
+export class ThemeModule {
+}
