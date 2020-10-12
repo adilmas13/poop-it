@@ -5,6 +5,7 @@ export class Note {
   locked: boolean
   createdOn: number
   isTitleVisible: boolean
+  deleteTime: number
 
   constructor() {
     const time = Date.now()
@@ -14,6 +15,7 @@ export class Note {
     this.locked = false
     this.createdOn = time
     this.isTitleVisible = false
+    this.deleteTime = null
   }
 }
 

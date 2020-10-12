@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Note, NotesWrapper } from '../models/note'
-import { Observable, of, zip } from 'rxjs'
-import { flatMap, map, tap } from 'rxjs/operators'
-import { NoteDelete } from '../models/note-delete'
+import { from, Observable, of } from 'rxjs'
+import { filter, flatMap, map, tap, toArray } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +15,13 @@ export class NotesRepositoryService {
   }
 
   getActiveNotes = () => {
-    return zip(this.getNotes(), this.getDeletedNotesModel()).pipe(
-      flatMap((both: any[]) => {
-        const notesWrapper = (both[0] as NotesWrapper)
-        const deletedId = (both[1] as NoteDelete[]).map(it => it.id)
-        const filteredNotes = notesWrapper.notes.filter(note => (deletedId.findIndex(id => id === note.id)) < 0)
+    return this.getNotes().pipe(
+      flatMap((wrapper: NotesWrapper) => {
+        const filteredNotes = wrapper.notes.filter((note: Note) => note.deleteTime === null)
         if (filteredNotes.length === 0) {
           const newNote = new Note()
-          notesWrapper.notes.push(newNote)
-          this.saveAllNotes(notesWrapper)
+          wrapper.notes.push(newNote)
+          this.saveAllNotes(wrapper)
           return of([newNote])
         }
         return of(filteredNotes)
@@ -33,13 +30,10 @@ export class NotesRepositoryService {
   }
 
   getDeletedNotes = () => {
-    return zip(this.getNotes(), this.getDeletedNotesModel()).pipe(
-      flatMap((both: any[]) => {
-        const notes = (both[0] as NotesWrapper).notes
-        const deletedId = (both[1] as NoteDelete[]).map(it => it.id)
-        const filteredNotes = notes.filter(note => (deletedId.findIndex(id => id === note.id)) > -1)
-        return of(filteredNotes)
-      })
+    return this.getNotes().pipe(
+      flatMap((wrapper: NotesWrapper) => wrapper.notes),
+      filter((note: Note) => note.deleteTime !== null),
+      toArray()
     )
   }
 
@@ -54,16 +48,22 @@ export class NotesRepositoryService {
   }
 
   deleteNote = (id: string) => {
-    return this.getDeletedNotesModel().pipe(
-      tap((notes: NoteDelete[]) => notes.unshift(new NoteDelete(id))),
-      tap((notes: NoteDelete[]) => localStorage.setItem(this.KEY_NOTE_DELETED, JSON.stringify(notes)))
+    const reducer = (accumulator: Note[], currentNote: Note) => {
+      if (currentNote.id === id) {
+        currentNote.deleteTime = Date.now()
+      }
+      accumulator.push(currentNote)
+      return accumulator
+    }
+    return this.getNotes().pipe(
+      map((wrapper: NotesWrapper) => {
+        const notes = wrapper.notes.reduce(reducer, [])
+        const tempWrapper = new NotesWrapper()
+        tempWrapper.notes = notes
+        return tempWrapper
+      }),
+      tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))
     )
-  }
-
-  getDeletedNotesModel = () => {
-    const str = localStorage.getItem(this.KEY_NOTE_DELETED)
-    const temp = str ? JSON.parse(str) as NoteDelete[] : []
-    return of<NoteDelete[]>(temp)
   }
 
   addNote = (note: Note) => this.getNotes().pipe(
@@ -90,15 +90,21 @@ export class NotesRepositoryService {
   private saveAllNotes = (wrapper: NotesWrapper) => localStorage.setItem(this.KEY_NOTES, JSON.stringify(wrapper))
 
   removeNoteForDeleteList = (id: string) => {
-    return this.getDeletedNotesModel().pipe(
-      map((models: NoteDelete[]) => {
-        const index = models.findIndex(it => it.id === id)
-        if (index > -1) {
-          models.splice(index, 1)
-        }
-        return models
+    const reducer = (accumulator: Note[], currentNote: Note) => {
+      if (currentNote.id === id) {
+        currentNote.deleteTime = null
+      }
+      accumulator.push(currentNote)
+      return accumulator
+    }
+    return this.getNotes().pipe(
+      map((wrapper: NotesWrapper) => {
+        const notes = wrapper.notes.reduce(reducer, [])
+        const tempWrapper = new NotesWrapper()
+        tempWrapper.notes = notes
+        return tempWrapper
       }),
-      tap((models: NoteDelete[]) => localStorage.setItem(this.KEY_NOTE_DELETED, JSON.stringify(models)))
+      tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))
     )
   }
 }
