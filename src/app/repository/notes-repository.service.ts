@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Note, NotesWrapper } from '../models/note'
-import { from, Observable, of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import { filter, flatMap, map, tap, toArray } from 'rxjs/operators'
 
 @Injectable({
@@ -8,8 +8,7 @@ import { filter, flatMap, map, tap, toArray } from 'rxjs/operators'
 })
 export class NotesRepositoryService {
 
-  KEY_NOTES = 'notes'
-  KEY_NOTE_DELETED = 'note.deleted'
+  private KEY_NOTES = 'notes'
 
   constructor() {
   }
@@ -33,7 +32,8 @@ export class NotesRepositoryService {
     return this.getNotes().pipe(
       flatMap((wrapper: NotesWrapper) => wrapper.notes),
       filter((note: Note) => note.deleteTime !== null),
-      toArray()
+      toArray(),
+      map((notes: Note[]) => notes.sort((a: Note, b: Note) => b.deleteTime - a.deleteTime))
     )
   }
 
