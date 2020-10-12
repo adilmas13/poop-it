@@ -15,22 +15,22 @@ class AppState {
 @Injectable()
 export class AppStore extends BaseStore<AppState> {
 
-  private titleTextChanged: Subject<string> = new Subject()
-  private bodyTextChanged: Subject<string> = new Subject()
+  private titleTextChanged: Subject<{ id: string, content: string }> = new Subject()
+  private bodyTextChanged: Subject<{ id: string, content: string }> = new Subject()
 
   constructor(private repository: NotesRepositoryService) {
     super(new AppState())
     this.titleTextChanged.pipe(
       debounceTime(1000),
       distinctUntilChanged()
-    ).subscribe(_ => {
-      this.save()
+    ).subscribe((data: { id: string, content: string }) => {
+      this.repository.updateTitle(data.id, data.content).subscribe()
     })
     this.bodyTextChanged.pipe(
       debounceTime(1000),
       distinctUntilChanged()
-    ).subscribe(_ => {
-      this.save()
+    ).subscribe((data: { id: string, content: string }) => {
+      this.repository.updateBody(data.id, data.content).subscribe()
     })
   }
 
@@ -46,8 +46,6 @@ export class AppStore extends BaseStore<AppState> {
     notes,
     selectedNote: notes[0]
   })
-
-  private save = () => this.repository.updateNote(this.state.selectedNote).subscribe()
 
   onAddNote = () => {
     if (this.state.isDeleteMode) {
@@ -67,17 +65,13 @@ export class AppStore extends BaseStore<AppState> {
     this.setState({selectedNote: temp})
   }
 
-  toggleFullScreen = () => this.setState({
-    isFullScreen: !this.state.isFullScreen
-  })
+  toggleFullScreen = () => this.setState({isFullScreen: !this.state.isFullScreen})
 
   toggleLock = () => {
     const temp = this.state.selectedNote
     temp.locked = !temp.locked
-    this.setState({
-      selectedNote: temp
-    })
-    this.save()
+    this.setState({selectedNote: temp})
+    this.repository.updateLock(temp.id, temp.locked).subscribe()
   }
 
   toggleTitleVisibility = () => {
@@ -86,13 +80,13 @@ export class AppStore extends BaseStore<AppState> {
     this.setState({
       selectedNote: temp
     })
-    this.save()
+    this.repository.updateTitleVisibility(temp.id, temp.isTitleVisible).subscribe()
   }
 
   onTitleTextChange = ($event: KeyboardEvent) => {
     // @ts-ignore
     const text = $event.target.value
-    this.titleTextChanged.next(text)
+    this.titleTextChanged.next({id: this.state.selectedNote.id, content: text})
     const updated = {...this.state.selectedNote, title: text}
     this.setState({
       selectedNote: updated,
@@ -103,7 +97,7 @@ export class AppStore extends BaseStore<AppState> {
   onBodyTextChange = ($event: KeyboardEvent) => {
     // @ts-ignore
     const text = $event.target.value
-    this.bodyTextChanged.next(text)
+    this.bodyTextChanged.next({id: this.state.selectedNote.id, content: text})
     const updated = {...this.state.selectedNote, body: text}
     this.setState({
       selectedNote: updated,

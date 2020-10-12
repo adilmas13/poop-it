@@ -71,9 +71,32 @@ export class NotesRepositoryService {
     tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))
   )
 
-  updateNote = (note: Note) => {
+  updateTitle = (id: string, title: string) =>
+    this.updateNote(id, (note: Note) => {
+      note.title = title
+    })
+
+  updateBody = (id: string, body: string) =>
+    this.updateNote(id, (note: Note) => {
+      note.body = body
+    })
+
+  updateTitleVisibility = (id: string, isTitleVisible: boolean) =>
+    this.updateNote(id, (note: Note) => {
+      note.isTitleVisible = isTitleVisible
+    })
+
+  updateLock = (id: string, isLocked: boolean) =>
+    this.updateNote(id, (note: Note) => {
+      note.locked = isLocked
+    })
+
+  private updateNote = (id: string, block: (Note) => void) => {
     const reducer = (accumulator: Note[], currentNote: Note) => {
-      accumulator.push(currentNote.id === note.id ? note : currentNote)
+      if (currentNote.id === id) {
+        block(currentNote)
+      }
+      accumulator.push(currentNote)
       return accumulator
     }
     return this.getNotes().pipe(
