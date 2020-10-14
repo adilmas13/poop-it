@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/534ab2a3-f9c6-4772-9e33-832a524fe0ee/deploy-status)](https://app.netlify.com/sites/poop-it/deploys)
+
 # Cadmus
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
