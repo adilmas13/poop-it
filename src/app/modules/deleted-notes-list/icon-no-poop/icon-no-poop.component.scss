@@ -1,4 +1,9 @@
 svg {
   width: 100px;
   height: 100px;
+  cursor: default;
+
+  &:hover {
+    transform: scale(1  );
+  }
 }
