@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 
 @Component({
-  selector: 'app-icon-poop',
-  templateUrl: './icon-poop.component.html',
+  selector: 'app-poop-icon-four',
+  templateUrl: './poop-icon-four.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IconPoopComponent {
+export class PoopIconFourComponent {
 }

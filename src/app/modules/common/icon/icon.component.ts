@@ -6,7 +6,6 @@ export type icons =
   | 'delete'
   | 'maximize'
   | 'minimize'
-  | 'poop'
   | 'plus'
   | 'notes'
   | 'no-poop'
