@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core'
 
 export type icons =
   'block'
@@ -8,8 +8,8 @@ export type icons =
   | 'minimize'
   | 'plus'
   | 'notes'
-  | 'no-poop'
   | 'recycle'
+  | 'toilet'
 
 @Component({
   selector: 'app-icon',
@@ -18,7 +18,7 @@ export type icons =
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IconComponent {
+export class IconComponent  {
   @Input() icon: icons
   @Input() isSelected = false
 }
