@@ -13,6 +13,24 @@
   position: relative;
   transition: 0.3s ease-out all;
 
+  .toilet-wrapper {
+    position: absolute;
+    height: 700px;
+    width: 700px;
+    bottom: -30px;
+    right: -100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.05;
+    transform: rotate(-30deg);
+
+    svg {
+      width: 600px;
+      height: 600px;
+    }
+  }
+
   &.isFullScreen {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -30,11 +48,14 @@
 
   .parent {
     padding: 40px 10px 20px 30px;
+    position: relative;
+    overflow: hidden;
 
     &.locked {
       pointer-events: none;
       user-select: none;
     }
+
   }
 
   .unable-to-delete-message {

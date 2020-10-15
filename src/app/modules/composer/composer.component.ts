@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core'
 import { AppStore } from '../../app-store.service'
 import { zeroHeightAnimation } from '../../animations/zero-height-animation'
 import { scaleInOutAnimation } from '../../animations/scale-in-out-animation'
+import { alphaAnimation } from '../../animations/alpha-animation'
 
 @Component({
   selector: 'app-composer',
@@ -11,6 +12,7 @@ import { scaleInOutAnimation } from '../../animations/scale-in-out-animation'
   animations: [
     scaleInOutAnimation,
     zeroHeightAnimation,
+    alphaAnimation
   ]
 })
 export class ComposerComponent implements OnDestroy {
