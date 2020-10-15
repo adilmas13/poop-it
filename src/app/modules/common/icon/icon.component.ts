@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, Renderer
 export type icons =
   'block'
   | 'unblock'
-  | 'delete'
   | 'maximize'
   | 'minimize'
   | 'plus'
