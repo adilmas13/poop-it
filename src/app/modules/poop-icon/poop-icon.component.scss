@@ -1,6 +1,8 @@
+@import "colours";
 .poop-wrapper {
   svg {
     width: 40px;
     height: 40px;
+    fill: var(--default-color);
   }
 }
