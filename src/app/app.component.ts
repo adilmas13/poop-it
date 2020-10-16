@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { AppStore } from './app-store.service'
 import { animate, style, transition, trigger } from '@angular/animations'
+import { AngularFireAnalytics } from '@angular/fire/analytics'
 
 @Component({
   selector: 'app-root',
@@ -23,10 +24,11 @@ import { animate, style, transition, trigger } from '@angular/animations'
 })
 export class AppComponent implements OnInit {
 
-  constructor(public store: AppStore) {
+  constructor(public store: AppStore, private analytics: AngularFireAnalytics) {
   }
 
   ngOnInit(): void {
     this.store.getNotes()
+    this.analytics.logEvent('time-to-poop').then().catch()
   }
 }
