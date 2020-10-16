@@ -3,9 +3,12 @@
   align-items: center;
   justify-content: center;
   width: 40px;
-  height: 40px; }
-  .icon-wrapper.isSelected svg {
-    fill: var(--primary-color); }
+  height: 40px;
+}
+
+.icon-wrapper.isSelected svg {
+  fill: var(--primary-color);
+}
 
 svg {
   text-align: center;
@@ -13,8 +16,11 @@ svg {
   height: 20px;
   cursor: pointer;
   transition: 0.3s ease-out;
-  fill: var(--default-color); }
-  svg:hover {
-    transform: scale(1.2); }
+  fill: var(--default-color);
+}
+
+svg:hover {
+  transform: scale(1.2);
+}
 
 /*# sourceMappingURL=icon.component.css.map */
