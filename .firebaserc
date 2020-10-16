@@ -2,7 +2,7 @@
   "targets": {
     "poop-it-1a51d": {
       "hosting": {
-        "cadmus": [
+        "poopit": [
           "poop-it-1a51d"
         ]
       }

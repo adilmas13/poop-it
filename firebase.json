@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "cadmus",
-      "public": "dist/cadmus",
+      "target": "poopit",
+      "public": "dist/poopit",
       "ignore": [
         "firebase.json",
         "**/.*",
