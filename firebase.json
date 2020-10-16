@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "cadmus",
+      "public": "dist/cadmus",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

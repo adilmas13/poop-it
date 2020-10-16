@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "poop-it-1a51d": {
+      "hosting": {
+        "cadmus": [
+          "poop-it-1a51d"
+        ]
+      }
+    }
+  }
+}
