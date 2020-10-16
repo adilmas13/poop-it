@@ -9,12 +9,12 @@ import { PoopIconModule } from '../poop-icon/poop-icon.module'
 
 @NgModule({
   declarations: [MenuComponent, AddButtonComponent],
-    imports: [
-        CommonModule,
-        IconModule,
-        ThemeModule,
-        PoopIconModule
-    ],
+  imports: [
+    CommonModule,
+    IconModule,
+    ThemeModule,
+    PoopIconModule
+  ],
   exports: [MenuComponent]
 })
 export class MenuModule {

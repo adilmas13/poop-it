@@ -3,11 +3,11 @@ Error: File to import not found or unreadable: colours.
         on line 1 of poop-icon.component.scss
 
 1: @import "colours";
-2: .poop-wrapper {
-3:   svg {
-4:     width: 40px;
-5:     height: 40px;
-6:     fill: var(--default-color);
+2: 
+3: .poop-wrapper {
+4:   svg {
+5:     width: 40px;
+6:     height: 40px;
 
 Backtrace:
 poop-icon.component.scss:1
@@ -48,4 +48,4 @@ poop-icon.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of poop-icon.component.scss\A \A 1: @import \"colours\";\A 2: .poop-wrapper {\A 3:   svg {\A 4:     width: 40px;\A 5:     height: 40px;\A 6:     fill: var(--default-color);"; }
+  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of poop-icon.component.scss\A \A 1: @import \"colours\";\A 2: \A 3: .poop-wrapper {\A 4:   svg {\A 5:     width: 40px;\A 6:     height: 40px;"; }
