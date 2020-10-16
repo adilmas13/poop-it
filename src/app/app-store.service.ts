@@ -4,6 +4,7 @@ import { BaseStore } from './store/base-store'
 import { NotesRepositoryService } from './repository/notes-repository.service'
 import { Subject } from 'rxjs'
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
+import { FartService } from './service/fart.service'
 
 class AppState {
   notes: Note[]
@@ -18,7 +19,8 @@ export class AppStore extends BaseStore<AppState> {
   private titleTextChanged: Subject<{ id: string, content: string }> = new Subject()
   private bodyTextChanged: Subject<{ id: string, content: string }> = new Subject()
 
-  constructor(private repository: NotesRepositoryService) {
+  constructor(private repository: NotesRepositoryService,
+              private fartService: FartService) {
     super(new AppState())
     this.titleTextChanged.pipe(
       debounceTime(1000),
@@ -107,6 +109,7 @@ export class AppStore extends BaseStore<AppState> {
 
   deleteNote = (id: string) => {
     this.repository.deleteNote(id).subscribe(() => this.getNotes())
+    this.fartService.fart()
   }
 
   enableDeleteMode = () => {
