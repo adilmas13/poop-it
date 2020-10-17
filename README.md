@@ -4,9 +4,9 @@
 
 ![alt tag](https://firebasestorage.googleapis.com/v0/b/poop-it-1a51d.appspot.com/o/assets%2Fbanner.jpg?alt=media)
 ### TIME TO POOP IT ALL OUT !!!
-Do you have random things to write with nothing else then simple text, the look no further, Poop It is the App for you.
+Do you have random things to write with nothing else then simple text, then look no further, Poop It is the App for you.
 
-### Poop it is a simple, light and super fast note making app that stores them locally with no login required.
+### Poop it is a simple, light and super fast note making app that stores them locally without login.
 Store multiple notes and edit them whenever required.
 
 ### Features
@@ -21,3 +21,5 @@ Store multiple notes and edit them whenever required.
 - ALSO A SURPRISE EVERYTIME YOU DELETE A NOTE.. 💨
 
 NOW Go And Dump your ideas and POOP IT all out
+
+https://www.poop-it.com/
