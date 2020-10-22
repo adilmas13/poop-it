@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 
-import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { MenuModule } from './modules/menu/menu.module'
 import { ComposerModule } from './modules/composer/composer.module'
@@ -21,7 +20,6 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics'
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAnalyticsModule,
     BrowserModule,
-    AppRoutingModule,
     MenuModule,
     ComposerModule,
     NotesListModule,
