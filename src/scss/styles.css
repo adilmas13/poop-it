@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Grandstander', cursive;
+  font-display: swap;
+  src: url("https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700&display=swap") format("woff2"); }
 :root {
   --primary-color: #cfcf19; }
 
