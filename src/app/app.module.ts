@@ -27,7 +27,6 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics'
     BrowserAnimationsModule,
     DeletedNotesListModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
