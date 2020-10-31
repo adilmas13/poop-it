@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { AppStore } from './app-store.service'
-import { animate, style, transition, trigger } from '@angular/animations'
 import { AngularFireAnalytics } from '@angular/fire/analytics'
+import { zeroWidthAnimation } from './animations/zero-width-animation';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +9,7 @@ import { AngularFireAnalytics } from '@angular/fire/analytics'
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [AppStore],
-  animations: [
-    trigger('inOut', [
-      transition(':enter', [
-        style({width: 0}),
-        animate('0.3s ease-out', style({width: '*'}))
-      ]),
-      transition(':leave', [
-        style({width: '*', opacity: 1}),
-        animate('0.3s ease-out', style({width: 0, opacity: 0}))
-      ])
-    ])
-  ]
+  animations: [zeroWidthAnimation]
 })
 export class AppComponent implements OnInit {
 
