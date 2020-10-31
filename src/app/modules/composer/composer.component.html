@@ -33,6 +33,7 @@
         <input (keyup)="store.onTitleTextChange($event)"
                *ngIf="state.selectedNote.isTitleVisible"
                [ngModel]="state.selectedNote.title"
+               (keyup.enter)="onHeadingEnterClicked($event)"
                class="heading"
                placeholder="dump your title here :P"
         />
@@ -41,7 +42,7 @@
     <textarea (keyup)="store.onBodyTextChange($event)"
               [ngModel]="state.selectedNote.body"
               class="body"
-              placeholder="write something awesome"></textarea>
+              placeholder="write something awesome" #body></textarea>
       </label>
 
     </div>

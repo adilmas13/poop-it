@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core'
 import { AppStore } from '../../app-store.service'
 import { zeroHeightAnimation } from '../../animations/zero-height-animation'
 import { scaleInOutAnimation } from '../../animations/scale-in-out-animation'
@@ -17,6 +17,8 @@ import { alphaAnimation } from '../../animations/alpha-animation'
 })
 export class ComposerComponent implements OnDestroy {
 
+  @ViewChild('body', {static: false}) body: ElementRef;
+
   isHeadlineButtonVisible = false
 
   constructor(public store: AppStore) {
@@ -25,4 +27,9 @@ export class ComposerComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.store.destroy()
   }
+
+  onHeadingEnterClicked = ($event: KeyboardEvent) => {
+    (this.body.nativeElement as HTMLTextAreaElement).focus();
+    $event.stopPropagation()
+  };
 }
