@@ -23,3 +23,5 @@ Store multiple notes and edit them whenever required.
 NOW Go And Dump your ideas and POOP IT all out
 
 https://www.poop-it.com/
+
+<a href="https://www.buymeacoffee.com/adilmas13"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a poop&emoji=💩&slug=adilmas13&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
