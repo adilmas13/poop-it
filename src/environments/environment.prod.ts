@@ -9,5 +9,6 @@ export const environment = {
     messagingSenderId: '1027486193216',
     appId: '1:1027486193216:web:dd0fb04a45b7cd444a71a5',
     measurementId: 'G-6F66WH9VCV'
-  }
+  },
+  buyMeACoffeeLink: 'https://www.buymeacoffee.com/adilmas13'
 }

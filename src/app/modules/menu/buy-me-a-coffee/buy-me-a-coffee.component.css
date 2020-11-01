@@ -1,16 +1,16 @@
 /*
 Error: File to import not found or unreadable: colours.
-        on line 1 of menu.component.scss
+        on line 1 of buy-me-a-coffee.component.scss
 
 1: @import "colours";
 2: 
-3: .menu-parent {
-4:   height: 100%;
-5:   width: 100%;
-6:   border: 1px solid var(--border-color);
+3: $buyCoffeeColor: #FFDD00;
+4: 
+5: .buy-me-a-coffee-parent {
+6:   display: flex;
 
 Backtrace:
-menu.component.scss:1
+buy-me-a-coffee.component.scss:1
 /Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
 /Library/Ruby/Gems/2.6.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -48,4 +48,4 @@ menu.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of menu.component.scss\A \A 1: @import \"colours\";\A 2: \A 3: .menu-parent {\A 4:   height: 100%;\A 5:   width: 100%;\A 6:   border: 1px solid var(--border-color);"; }
+  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of buy-me-a-coffee.component.scss\A \A 1: @import \"colours\";\A 2: \A 3: $buyCoffeeColor: #FFDD00;\A 4: \A 5: .buy-me-a-coffee-parent {\A 6:   display: flex;"; }
