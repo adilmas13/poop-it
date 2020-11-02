@@ -3,9 +3,9 @@ Error: File to import not found or unreadable: colours.
         on line 1 of buy-me-a-coffee.component.scss
 
 1: @import "colours";
-2: 
+2:
 3: $buyCoffeeColor: #FFDD00;
-4: 
+4:
 5: .buy-me-a-coffee-parent {
 6:   display: flex;
 
@@ -48,4 +48,5 @@ buy-me-a-coffee.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of buy-me-a-coffee.component.scss\A \A 1: @import \"colours\";\A 2: \A 3: $buyCoffeeColor: #FFDD00;\A 4: \A 5: .buy-me-a-coffee-parent {\A 6:   display: flex;"; }
+  content: "Error: File to import not found or unreadable: colours.\A         on line 1 of buy-me-a-coffee.component.scss\A \A 1: @import \"colours\";\A 2: \A 3: $buyCoffeeColor: #FFDD00;\A 4: \A 5: .buy-me-a-coffee-parent {\A 6:   display: flex;";
+}

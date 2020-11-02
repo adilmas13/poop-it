@@ -5,7 +5,7 @@ Error: File to import not found or unreadable: variables.
 1: @import "variables";
 2: @import "colours";
 3: @import "fonts";
-4: 
+4:
 5: :host {
 6:   &.selected {
 
@@ -48,4 +48,5 @@ note.component.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: variables.\A         on line 1 of note.component.scss\A \A 1: @import \"variables\";\A 2: @import \"colours\";\A 3: @import \"fonts\";\A 4: \A 5: :host {\A 6:   &.selected {"; }
+  content: "Error: File to import not found or unreadable: variables.\A         on line 1 of note.component.scss\A \A 1: @import \"variables\";\A 2: @import \"colours\";\A 3: @import \"fonts\";\A 4: \A 5: :host {\A 6:   &.selected {";
+}

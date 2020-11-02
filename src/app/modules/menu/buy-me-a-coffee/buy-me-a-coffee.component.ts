@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -9,7 +9,8 @@ import { environment } from '../../../../environments/environment';
 })
 export class BuyMeACoffeeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

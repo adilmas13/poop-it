@@ -31,18 +31,18 @@
          class="parent">
       <label style="height: 40px">
         <input (keyup)="store.onTitleTextChange($event)"
+               (keyup.enter)="onHeadingEnterClicked($event)"
                *ngIf="state.selectedNote.isTitleVisible"
                [ngModel]="state.selectedNote.title"
-               (keyup.enter)="onHeadingEnterClicked($event)"
                class="heading"
                placeholder="dump your title here :P"
         />
       </label>
       <label>
-    <textarea (keyup)="store.onBodyTextChange($event)"
+    <textarea #body
+              (keyup)="store.onBodyTextChange($event)"
               [ngModel]="state.selectedNote.body"
-              class="body"
-              placeholder="write something awesome" #body></textarea>
+              class="body" placeholder="write something awesome"></textarea>
       </label>
 
     </div>
