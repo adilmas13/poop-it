@@ -55,6 +55,7 @@ export class AppStore extends BaseStore<AppState> {
       selectedNote: newNote
     })
     this.repository.addNote(newNote).subscribe()
+    this.fartService.fart()
   }
 
   onNoteSelected = (index: number) => {
