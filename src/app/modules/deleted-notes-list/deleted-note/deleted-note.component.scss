@@ -29,7 +29,7 @@
     box-shadow: 0 1px 6px 0 var(--shadow-color);
     transform: scale(1.01);
 
-    app-icon {
+    app-icon.more {
       opacity: 1;
       transform: scale(1);
     }
@@ -66,7 +66,7 @@
     padding-top: 5px;
   }
 
-  app-icon {
+  app-icon.more {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -85,4 +85,61 @@
     border-bottom-right-radius: 5px;
   }
 
+  .overlay {
+    background: rgba(255, 255, 255, 0.90);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+
+    &.enabled {
+      transform: scale(1);
+
+      .options-wrapper {
+        .row {
+          transform: scale(1);
+        }
+      }
+    }
+
+    .options-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .row {
+        display: flex;
+        align-items: center;
+        transform: scale(0);
+        transition: 0.3s ease-out all;
+        transform-origin: left bottom;
+
+        &:hover {
+          .text {
+            transform: translateX(10px) scale(1.1);
+            color: var(--primary-color);
+          }
+        }
+
+        .text {
+          margin-left: 5px;
+          transition: 0.3s ease-out transform;
+        }
+
+        &:nth-child(2) {
+          margin-top: 2px;
+        }
+      }
+    }
+
+    app-icon.cancel{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
 }

@@ -9,6 +9,13 @@ export type icons =
   | 'notes'
   | 'recycle'
   | 'toilet'
+  | 'cancel'
+  | 'more'
+
+export type iconSize =
+  'small'
+  | 'medium'
+  | 'large'
 
 @Component({
   selector: 'app-icon',
@@ -20,4 +27,5 @@ export type icons =
 export class IconComponent {
   @Input() icon: icons
   @Input() isSelected = false
+  @Input() iconSize: iconSize = 'medium'
 }

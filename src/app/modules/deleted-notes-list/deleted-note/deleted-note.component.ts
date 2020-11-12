@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Note } from '../../../models/note';
 
 @Component({
@@ -7,14 +7,14 @@ import { Note } from '../../../models/note';
   styleUrls: ['./deleted-note.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DeletedNoteComponent implements OnInit {
+export class DeletedNoteComponent {
   @Input() note: Note
-  @Input() deleteMode = false
-  @Output() delete = new EventEmitter()
   @Output() recycle = new EventEmitter()
-  constructor() { }
+  @Output() permanentDelete = new EventEmitter()
+  isOptionsEnabled = false;
 
-  ngOnInit() {
+  constructor() {
   }
+
 
 }

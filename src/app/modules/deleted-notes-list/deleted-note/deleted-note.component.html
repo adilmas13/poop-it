@@ -6,13 +6,24 @@
   <div class="body">{{note.body | defaultNoteText:"write something awesome"}}</div>
 
   <app-icon
-    (click)="delete.emit()"
-    *ngIf="!deleteMode"
-    [icon]="'toilet'">
+    class="more"
+    (click)="isOptionsEnabled = !isOptionsEnabled"
+    [icon]="'more'">
   </app-icon>
-  <app-icon
-    (click)="recycle.emit()"
-    *ngIf="deleteMode"
-    [icon]="'recycle'">
-  </app-icon>
+
+  <div class="overlay" [class.enabled]="isOptionsEnabled">
+    <div class="options-wrapper">
+      <div class="row" (click)="permanentDelete.emit()">
+        <app-icon [icon]="'toilet'"></app-icon>
+        <div class="text">flush forever</div>
+      </div>
+      <div class="row" (click)="recycle.emit()">
+        <app-icon [icon]="'recycle'"></app-icon>
+        <div class="text">restore</div>
+      </div>
+    </div>
+    <app-icon [icon]="'cancel'" class="cancel" [iconSize]="'small'"
+              (click)="isOptionsEnabled = !isOptionsEnabled"
+    ></app-icon>
+  </div>
 </div>

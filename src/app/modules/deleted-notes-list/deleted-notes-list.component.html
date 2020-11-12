@@ -1,13 +1,13 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
     <app-deleted-note (click)="noteSelected.emit(i)"
-              (recycle)="store.restoreNote(note.id)"
-              *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
-              @noteAnim
-              [@.disabled]="disabledAnimation | async"
-              [class.selected]="note.id === state.selectedNote.id"
-              [deleteMode]="true"
-              [note]="note"
+                      (recycle)="store.restoreNote(note.id)"
+                      (permanentDelete)="store.permanentDeleteNote(note.id)"
+                      *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
+                      @noteAnim
+                      [@.disabled]="disabledAnimation | async"
+                      [class.selected]="note.id === state.selectedNote.id"
+                      [note]="note"
     ></app-deleted-note>
     <div *ngIf="state.notes.length === 0"
          @scaleAnim

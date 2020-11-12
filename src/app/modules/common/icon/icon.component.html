@@ -1,4 +1,10 @@
-<div [class.isSelected]="isSelected" class="icon-wrapper">
+<div [class.isSelected]="isSelected" class="icon-wrapper"
+[ngClass]="{
+  'small' : iconSize === 'small',
+  'medium' : iconSize === 'medium',
+  'large' : iconSize === 'large'
+}"
+>
   <ng-container [ngSwitch]="icon">
     <app-icon-block *ngSwitchCase="'block'"></app-icon-block>
     <app-icon-unblock *ngSwitchCase="'unblock'"></app-icon-unblock>
@@ -7,6 +13,8 @@
     <app-icon-plus *ngSwitchCase="'plus'"></app-icon-plus>
     <app-icon-notes *ngSwitchCase="'notes'"></app-icon-notes>
     <app-icon-recycle *ngSwitchCase="'recycle'"></app-icon-recycle>
-    <app-icon-toilet #test *ngSwitchCase="'toilet'"></app-icon-toilet>
+    <app-icon-toilet  *ngSwitchCase="'toilet'"></app-icon-toilet>
+    <app-icon-cancel  *ngSwitchCase="'cancel'"></app-icon-cancel>
+    <app-icon-more  *ngSwitchCase="'more'"></app-icon-more>
   </ng-container>
 </div>
