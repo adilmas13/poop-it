@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="title-and-time-wrapper">
+    <div class="title">{{note.title | defaultNoteText:"note"}}</div>
+    <div class="time">{{note.createdOn | date}}</div>
+  </div>
+  <div class="body">{{note.body | defaultNoteText:"write something awesome"}}</div>
+
+  <app-icon
+    (click)="delete.emit()"
+    *ngIf="!deleteMode"
+    [icon]="'toilet'">
+  </app-icon>
+  <app-icon
+    (click)="recycle.emit()"
+    *ngIf="deleteMode"
+    [icon]="'recycle'">
+  </app-icon>
+</div>

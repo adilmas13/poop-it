@@ -133,6 +133,10 @@ export class AppStore extends BaseStore<AppState> {
 
   restoreNote = (id: string) => this.repository.removeNoteForDeleteList(id).subscribe(() => this.getDeletedNotes())
 
+  permanentDeleteNote = (id: string) => {
+    this.repository.permanentDeleteNote(id).subscribe(() => this.getDeletedNotes())
+    this.fartService.fart()
+  }
   private onNotesSuccess = (notes: Note[]) => this.setState({
     notes,
     selectedNote: notes[0]

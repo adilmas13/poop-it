@@ -56,6 +56,18 @@ export class NotesRepositoryService {
     )
   }
 
+  permanentDeleteNote = (id: string) => {
+    return this.getNotes().pipe(
+      map((wrapper: NotesWrapper) => wrapper.notes),
+      map((notes: Note[]) => notes.filter(it => it.id !== id)),
+      tap((notes: Note[]) => {
+        const tempWrapper = new NotesWrapper()
+        tempWrapper.notes = notes
+        this.saveAllNotes(tempWrapper)
+      })
+    )
+  }
+
   addNote = (note: Note) => this.getNotes().pipe(
     tap((wrapper: NotesWrapper) => wrapper.notes.unshift(note)),
     tap((wrapper: NotesWrapper) => this.saveAllNotes(wrapper))

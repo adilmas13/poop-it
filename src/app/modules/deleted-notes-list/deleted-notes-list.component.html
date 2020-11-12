@@ -1,6 +1,6 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div class="parent">
-    <app-note (click)="noteSelected.emit(i)"
+    <app-deleted-note (click)="noteSelected.emit(i)"
               (recycle)="store.restoreNote(note.id)"
               *ngFor="let note of state.notes; index as i; trackBy: trackByFn"
               @noteAnim
@@ -8,7 +8,7 @@
               [class.selected]="note.id === state.selectedNote.id"
               [deleteMode]="true"
               [note]="note"
-    ></app-note>
+    ></app-deleted-note>
     <div *ngIf="state.notes.length === 0"
          @scaleAnim
          class="no-notes">

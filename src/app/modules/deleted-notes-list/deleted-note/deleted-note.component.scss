@@ -1,0 +1,88 @@
+@import "variables";
+@import "colours";
+@import "fonts";
+
+:host {
+  &.selected {
+    .card {
+      border: 1px solid var(--primary-color);
+      transform: scale(0.98);
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  height: 120px;
+  border-radius: 5px;
+  background: var(--background-color);
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: 0.1s ease-out all;
+  padding: 20px 20px 10px;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 1px 6px 0 var(--shadow-color);
+    transform: scale(1.01);
+
+    app-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .title-and-time-wrapper {
+    display: flex;
+
+    .title {
+      flex: 1;
+      font-size: 16px;
+      color: var(--default-color);
+      @include font-semi-bold;
+      height: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: 10px;
+    }
+
+    .time {
+      font-size: 12px;
+    }
+  }
+
+  .body {
+    font-size: 14px;
+    color: var(--default-color);
+    opacity: 0.8;
+    overflow: hidden;
+    line-height: 1.6;
+    height: 75px;
+    text-overflow: ellipsis;
+    padding-top: 5px;
+  }
+
+  app-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: 0.2s ease-out all;
+    transition-delay: 300ms;
+    transform: scale(0);
+    background: var(--surface-color);
+    height: 40px;
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    width: 40px;
+    transform-origin: right bottom;
+    padding: 5px 0 0 0;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 5px;
+  }
+
+}
