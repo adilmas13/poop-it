@@ -7,12 +7,6 @@
 
   <app-icon
     (click)="delete.emit()"
-    *ngIf="!deleteMode"
     [icon]="'toilet'">
-  </app-icon>
-  <app-icon
-    (click)="recycle.emit()"
-    *ngIf="deleteMode"
-    [icon]="'recycle'">
   </app-icon>
 </div>
