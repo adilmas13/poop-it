@@ -1,6 +1,6 @@
 <ng-container *ngIf="store.state$ | async as state">
   <div [class.active]="!state.isDeleteMode" class="add-button">
-    <app-icon [isSelected]="true" icon="plus"></app-icon>
+    <app-icon [isSelected]="true" icon="plus" iconSize="large"></app-icon>
     <app-poop-icon></app-poop-icon>
   </div>
 
