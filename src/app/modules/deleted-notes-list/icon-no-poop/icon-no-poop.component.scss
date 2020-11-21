@@ -2,6 +2,7 @@ svg {
   width: 100px;
   height: 100px;
   cursor: default;
+  fill: var(--default-color);
 
   &:hover {
     transform: scale(1);

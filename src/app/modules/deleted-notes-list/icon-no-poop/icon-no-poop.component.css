@@ -2,10 +2,8 @@ svg {
   width: 100px;
   height: 100px;
   cursor: default;
-}
-
-svg:hover {
-  transform: scale(1);
-}
+  fill: var(--default-color); }
+  svg:hover {
+    transform: scale(1); }
 
 /*# sourceMappingURL=icon-no-poop.component.css.map */
