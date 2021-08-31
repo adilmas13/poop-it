@@ -7,13 +7,7 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./buy-me-a-coffee.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BuyMeACoffeeComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class BuyMeACoffeeComponent {
 
   onLogoClicked = ($event: MouseEvent) => {
     window.open(environment.buyMeACoffeeLink, '_blank');
