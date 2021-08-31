@@ -11,7 +11,6 @@ $buyCoffeeColor: #FFDD00;
   height: 50px;
   width: 50px;
   background: $buyCoffeeColor;
-  cursor: pointer;
 
   span {
     position: absolute;
@@ -35,6 +34,7 @@ $buyCoffeeColor: #FFDD00;
     justify-content: center;
     position: relative;
     border-radius: 50%;
+    cursor: pointer;
   }
 }
 
